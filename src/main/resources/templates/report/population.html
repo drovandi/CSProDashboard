@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout :: site-head"/>
+    <head>
+        <script type="text/javascript">
+            $(function () {
+                setMenuActive("report-population");
+                $.getJSON(ctx + "/rest/report/population", function (populationReport) {
+                    $('#questionnaireCount1').text(populationReport.total);
+                    $('#questionnaireCount2').text(populationReport.age_avg);
+                    $('#questionnaireCount3').text(populationReport.age_max);
+                    $('#questionnaireCount4').text(populationReport.total_male);
+                    $('#questionnaireCount5').text(populationReport.age_avg_male);
+                    $('#questionnaireCount6').text(populationReport.age_max_male);
+                    $('#questionnaireCount7').text(populationReport.total_female);
+                    $('#questionnaireCount8').text(populationReport.age_avg_female);
+                    $('#questionnaireCount9').text(populationReport.age_max_female);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Body -->    
+        <div class="wrapper">
+
+            <header th:replace="layout :: site-header" />
+            <aside th:replace="layout :: site-aside" />
+
+            <!-- START MAIN CONTAINER -->
+            <section>
+                <div class="content-wrapper">
+                    <div class="content-heading">
+                        Template page
+                        <small>template</small>
+                    </div>
+
+                    <div class="content-body">
+
+                        <div class="row">
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-purple">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-purple-dark ">
+                                            <em class="fa fa-child fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount1"></div>
+                                            <div class="text-uppercase">Individuals</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-purple">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+                                            <em class="fa fa-hourglass-2 fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount2"></div>
+                                            <div class="text-uppercase">Average Age</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-purple">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+                                            <em class="fa fa-blind fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount3"></div>
+                                            <div class="text-uppercase">Max Age</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                        </div>
+
+                        <div class="row">
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-male">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-male-dark ">
+                                            <em class="fa fa-male fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount4"></div>
+                                            <div class="text-uppercase">Males</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-male">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-male-dark pv-lg">
+                                            <em class="fa fa-hourglass-2 fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount5"></div>
+                                            <div class="text-uppercase">Male Avg Age</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-male">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-male-dark pv-lg">
+                                            <em class="fa fa-blind fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount6"></div>
+                                            <!--s: property value="getFormatted('{0,number,#,##0}',questionnaireReport.individual)"/-->
+                                            <div class="text-uppercase">Male Max Age</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                        </div>
+
+                        <div class="row">
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-female">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-female-dark ">
+                                            <em class="fa fa-female fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount7"></div>
+                                            <div class="text-uppercase">Females</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-female">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-female-dark pv-lg">
+                                            <em class="fa fa-hourglass-2 fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount8"></div>
+                                            <div class="text-uppercase">Female Avg Age</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="panel widget bg-female">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-female-dark pv-lg">
+                                            <em class="fa fa-blind fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="questionnaireCount9"></div>
+                                            <div class="text-uppercase">Female Max Age</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <!-- END MAIN CONTAINER -->
+
+            <footer th:replace="layout :: site-footer" />
+        </div><!-- wrapper -->
+    </body>
+</html>
+

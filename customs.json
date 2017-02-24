@@ -1,0 +1,26 @@
+{
+    "attributes": {
+        "th:replace": {
+            "context": "header"
+        },
+        "th:text": {},
+        "th:class": {},
+        "th:content": {},
+        "sec:authentication": {},
+        "sec:authorize": {},
+        "th:src": {
+            "context": "script"
+        },
+        "th:with": {},
+        "th:unless": {},
+        "th:if": {},
+        "th:value": {},
+        "th:field": {},
+        "th:href": {
+            "context": "link"
+        },
+        "th:fragment": {},
+        "th:object": {}
+    },
+    "elements": {}
+}
