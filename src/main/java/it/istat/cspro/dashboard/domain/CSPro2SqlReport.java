@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * @author Istat Cooperation Unit
  */
 @Entity
-@Table(name = "CSPRO2SQL_STATS")
+@Table(name = "CSPRO2SQL_REPORT")
 public class CSPro2SqlReport implements Serializable {
 
     private static final long serialVersionUID = 2855428583098249553L;
