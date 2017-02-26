@@ -1,26 +1,27 @@
 {
+    "elements": {},
     "attributes": {
-        "th:replace": {
-            "context": "header"
-        },
         "th:text": {},
-        "th:class": {},
-        "th:content": {},
+        "th:object": {},
+        "th:field": {},
+        "th:fragment": {},
+        "th:each": {},
+        "th:if": {},
         "sec:authentication": {},
-        "sec:authorize": {},
+        "th:unless": {},
         "th:src": {
             "context": "script"
         },
-        "th:with": {},
-        "th:unless": {},
-        "th:if": {},
-        "th:value": {},
-        "th:field": {},
+        "sec:authorize": {},
+        "th:replace": {
+            "context": "header"
+        },
+        "th:content": {},
         "th:href": {
             "context": "link"
         },
-        "th:fragment": {},
-        "th:object": {}
-    },
-    "elements": {}
+        "th:class": {},
+        "th:value": {},
+        "th:with": {}
+    }
 }

@@ -1,7 +1,7 @@
 package it.istat.cspro.dashboard.rest;
 
-import it.istat.cspro.dashboard.services.DataReportService;
-import it.istat.cspro.dashboard.services.ProcessReportService;
+import it.istat.cspro.dashboard.service.DataReportService;
+import it.istat.cspro.dashboard.service.ProcessReportService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

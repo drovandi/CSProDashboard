@@ -5,7 +5,7 @@ var arrDataFemale = [];
 var arrColor = [];
 
 $(document).ready(function () {
-    setMenuActive("sexdistribution-list");
+    setMenuActive("report-sexdistribution");
     var jqxhr = $.getJSON(_ctx + "/rest/report/list/sexByAgeGroup", function (json) {
         console.log("success");
     }).done(function (json) {

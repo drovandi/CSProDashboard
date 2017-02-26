@@ -11,14 +11,14 @@ import it.istat.cspro.dashboard.bean.Role;
 import it.istat.cspro.dashboard.domain.User;
 import it.istat.cspro.dashboard.forms.LoginForm;
 import it.istat.cspro.dashboard.forms.UserCreateForm;
-import it.istat.cspro.dashboard.services.NotificationService;
-import it.istat.cspro.dashboard.services.UserService;
+import it.istat.cspro.dashboard.service.NotificationService;
+import it.istat.cspro.dashboard.service.UserService;
 import java.security.Principal;
 import java.util.List;
 import javax.validation.Valid;
 
 @Controller
-public class UserController {
+public class UserController extends BaseController {
 
     @Autowired
     private NotificationService notificationService;

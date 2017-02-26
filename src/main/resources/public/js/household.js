@@ -1,6 +1,6 @@
 
 $(function () {
-    setMenuActive("household-list");
+    setMenuActive("report-household");
     $.getJSON(ctx + "/rest/report/list/household", function (json) {
         var _data = json.splice(1);
         var data = [];
@@ -10,7 +10,7 @@ $(function () {
             data.push(a);
         }
         var name = json[0].name.split('#');
-        name.push('Household');
+        name.push('Total');
         populate(data, name);
     });
 });

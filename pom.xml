@@ -6,7 +6,7 @@
     <groupId>it.istat.cspro.dashboard</groupId>
     <artifactId>csprodashboard</artifactId>
     <version>0.0.1</version>
-    <packaging>jar</packaging>
+    <packaging>${packaging.type}</packaging>
     <name>CSProDashboard</name>
     <description>CSProDashboard</description>
 
@@ -82,32 +82,23 @@
                 </configuration>
             </plugin>
         </plugins>
-        <!--resources>
-            <resource>
-                <directory>src/main/webapp</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/**</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/webapp</directory>
-                <filtering>false</filtering>
-                <excludes>
-                    <exclude>**/**</exclude>
-                </excludes>
-            </resource>
-        </resources-->
+        <finalName>dashboard</finalName>
     </build>
 
     <profiles>
         <profile>
-            <id></id>
+            <id>dashboardDev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <packaging>jar</packaging>
+                <packaging.type>jar</packaging.type>
+            </properties>
+        </profile>
+         <profile>
+            <id>dashboardWar</id>
+            <properties>
+                <packaging.type>war</packaging.type>
             </properties>
         </profile>
     </profiles>

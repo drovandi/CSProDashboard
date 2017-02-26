@@ -5,46 +5,43 @@ var arrColor = [];
 var arrLabelData = [];
 
 $(document).ready(function () {
-    setMenuActive("religion-list");
+    setMenuActive("report-religion");
     var jqxhr = $.getJSON(_ctx + "/rest/report/list/religion", function (json) {
         console.log("success");
-    })
-      .done(function (json) {
-          console.log("second success");
-      })
-      .fail(function (json) {
-          console.log("error");
-      })
-      .always(function (json) {
-          console.log("complete");
-          var startFrom = 55;
-          var individualsTotal = 0;
-          $.each(json, function (i, obj) {
-              arrLabel.push(obj.religion);
-              arrData.push(obj.individuals);
-              individualsTotal = individualsTotal + parseInt(obj.individuals);
-              arrColor.push(color[i + startFrom ][2]);
-              arrLabelData.push([]);
-              arrLabelData[i][0] = obj.religion;
-              arrLabelData[i][1] = parseInt(obj.individuals);
-              arrLabelData[i][2] = 0;
-          });
-          for (var i in arrLabelData) {
-              var individuals = 0;
-              individuals = parseInt(arrLabelData[i][1]);
-              arrLabelData[i][2] = 100 * individuals / individualsTotal;
-          }
+    }).done(function (json) {
+        console.log("second success");
+    }).fail(function (json) {
+        console.log("error");
+    }).always(function (json) {
+        console.log("complete");
+        var startFrom = 55;
+        var individualsTotal = 0;
+        $.each(json, function (i, obj) {
+            arrLabel.push(obj.religion);
+            arrData.push(obj.individuals);
+            individualsTotal = individualsTotal + parseInt(obj.individuals);
+            arrColor.push(color[i + startFrom ][2]);
+            arrLabelData.push([]);
+            arrLabelData[i][0] = obj.religion;
+            arrLabelData[i][1] = parseInt(obj.individuals);
+            arrLabelData[i][2] = 0;
+        });
+        for (var i in arrLabelData) {
+            var individuals = 0;
+            individuals = parseInt(arrLabelData[i][1]);
+            arrLabelData[i][2] = 100 * individuals / individualsTotal;
+        }
 
-          $('.loading').hide();
+        $('.loading').hide();
 
-          $('.religion-fluid').animate(
-            {queue: false, duration: 500}
-          ).fadeIn('clip', '', 500, callBackShow);
+        $('.religion-fluid').animate(
+                {queue: false, duration: 500}
+        ).fadeIn('clip', '', 500, callBackShow);
 
-          renderTable();
-          renderDoughnut();
+        renderTable();
+        renderDoughnut();
 
-      });
+    });
 
 });
 
@@ -52,8 +49,8 @@ function renderTable() {
     var table = $("#religionlist").DataTable({
         //dom: 'Bfrtip',
         dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
-          "<'row'<'col-sm-12'tr>>" +
-          "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         responsive: true,
         pageLength: 20,
         bPaginate: true,
@@ -117,18 +114,16 @@ function renderDoughnut() {
     var myChartDoughnut = document.getElementById("doughnut-chart-area").getContext("2d");
     var myDoughnut = new Chart(myChartDoughnut, configDoughnut);
 }
-;
 
 function callBackHide() {
     setTimeout(function () {
         $("#center").fadeOut();
     }, 1000);
 }
-;
+
 function callBackShow() {
     setTimeout(function () {
         $("#center").fadeIn();
     }, 1000);
 }
-;
 

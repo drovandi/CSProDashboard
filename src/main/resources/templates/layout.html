@@ -18,7 +18,7 @@
         <script th:src="@{/js/dashboard.js}" type="text/javascript"></script>
         <script type="text/javascript">var ctx = $("meta[name='ctx']").attr("content");</script>
     </head>
-    
+
     <body>
 
         <div class="wrapper">
@@ -60,30 +60,46 @@
                                         <span>Home</span>
                                     </a>
                                 </li>
-                                <li class="nav-body">
-                                    <a href="#process-2"
-                                       title="Data" data-toggle="collapse" class="collapsed"
-                                       aria-expanded="false">
-                                        <i class="fa  fa-file-text-o"></i>
-                                        <span>Data</span>
+                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
+                                    <a href="#process" title="Process Report" data-toggle="collapse" class="collapsed" aria-expanded="false">
+                                        <i class="fa fa-cogs"></i>
+                                        <span>Process Report</span>
                                     </a>
-                                    <ul id="process-2" class="nav sidebar-subnav collapse"
-                                        aria-expanded="false">
-                                        <li id="household-list">
-                                            <a title="Household" th:href="@{/report/household}">
-                                                <i class="fa fa-table"></i>
-                                                <span>Household</span>
+                                    <ul id="process" class="nav sidebar-subnav collapse" aria-expanded="false">
+                                        <li id="report-household" th:if="${reports.contains('r_household_by_ea')}">
+                                            <a title="Household by EA" th:href="@{/report/household}">
+                                                <span>Household by EA</span>
                                             </a>
                                         </li>
-                                        <li id="religion-list">
-                                            <a title="Religion" th:href="@{/report/religion}">
-                                                <i class="fa fa-pie-chart"></i>
-                                                <span>Religion</span>
-                                            </a></li>
-                                        <li id="sexdistribution-list">
+                                    </ul>
+                                </li>
+                                <li class="nav-body">
+                                    <a href="#data"
+                                       title="Analysis Report" data-toggle="collapse" class="collapsed"
+                                       aria-expanded="false">
+                                        <i class="fa fa-file-text-o"></i>
+                                        <span>Analysis Report</span>
+                                    </a>
+                                    <ul id="data" class="nav sidebar-subnav collapse"
+                                        aria-expanded="false">
+                                        <li id="report-population" th:if="${reports.contains('r_individual_info')}">
+                                            <a title="Population" th:href="@{/report/population}">
+                                                <span>Population</span>
+                                            </a>
+                                        </li>
+                                        <li id="report-sexdistribution" th:if="${reports.contains('r_sex_by_age')}">
                                             <a title="Sex Distributiont" th:href="@{/report/sexdistribution}">
-                                                <i class="fa fa-bar-chart"></i>
                                                 <span>Sex Distribution</span>
+                                            </a>
+                                        </li>
+                                        <li id="report-questionnaire" th:if="${reports.contains('r_questionnaire_info')}">
+                                            <a title="Questionnaire" th:href="@{/report/questionnaire}">
+                                                <span>Questionnaire</span>
+                                            </a>
+                                        </li>
+                                        <li id="report-religion" th:if="${reports.contains('r_religion')}">
+                                            <a title="Religion" th:href="@{/report/religion}">
+                                                <span>Religion</span>
                                             </a>
                                         </li>
                                     </ul>

@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import it.istat.cspro.dashboard.domain.User;
 import it.istat.cspro.dashboard.forms.UserCreateForm;
-import it.istat.cspro.dashboard.services.NotificationService;
-import it.istat.cspro.dashboard.services.UserService;
-import it.istat.cspro.dashboard.services.NotificationService.NotificationMessage;
+import it.istat.cspro.dashboard.service.NotificationService;
+import it.istat.cspro.dashboard.service.UserService;
+import it.istat.cspro.dashboard.service.NotificationService.NotificationMessage;
 
 @RestController
 public class UserRestController {
