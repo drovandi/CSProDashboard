@@ -31,7 +31,7 @@ You’ll build a web application that will provide out of the box :
 
 ## How to build
 
-##Create the Dashboard database
+##Create the database
 In order to describe the build steps, we assume that your [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql) property file is the following (eg. `Household.properties`):
 ```
 # Source CsPro database
@@ -70,7 +70,7 @@ Username: guest@dashboard.it
 Password: guest
 Role: GUEST
 ``` 
-##Build the Dashboard web application
+##Build the web application
 Download the source code and open it with your favorite IDE.
 As a first step check the content of the application.properties file, located in the path `Other Sources > src/main/resources`:
 
@@ -79,7 +79,7 @@ spring.datasource.url = jdbc:mysql://localhost:3306/cspro_microdata?useSSL=false
 spring.datasource.username = dstUsername
 spring.datasource.password = dstPassword
 ```
-The properties should match the destination microdata MySQL specified in the `Household.properties`
+The properties should match the `Destination microdata MySQL` properties specified in the `Household.properties`
 
 Now you can perform your first build of the application.
 If the build process ends successfully, you are ready to run the application. 
