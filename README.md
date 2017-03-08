@@ -58,6 +58,34 @@ If you have successfully completed these steps, you have a microdata Mysql datab
 > mysql -u dstUsername -p < WORKING_PATH\dashboard.sql
 > CsPro2Sql -e update -p Household.properties –cc
 ```
+The script will populate the `USER/ROLES` tables with two users:
+```
+Username: admin@dashboard.it
+Password: admin
+Role: ADMIN
+
+Username: guest@dashboard.it
+Password: guest
+Role: GUEST
+```  
+From your IDE select and open the unzipped maven project.
+As a first step check the content of the application.properties file, located in the path `Other Sources > src/main/resources`:
+
+```
+spring.datasource.url = jdbc:mysql://localhost:3306/cspro_microdata?useSSL=false
+spring.datasource.username = dstUsername
+spring.datasource.password = dstPassword
+```
+The properties should match the destination microdata MySQL specified in the `Household.properties`
+
+Now you can perform your first build of the application.
+If the build process ends successfully, you are ready to run the application. 
+The application is built using the open source framework Spring Boot, which generates an 
+executable jar (that can be run from the command line). Spring Boot creates a stand-alone Spring 
+based Applications, with an embedded Tomcat, that you can "just run".
+```
+java –jar  mecbox-1.0.jar
+```
 
 ## License
 CSProDashboard is EUPL-licensed
