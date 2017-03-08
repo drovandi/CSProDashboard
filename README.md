@@ -1,6 +1,6 @@
 # CSPro Dashboard
 
-CsPro Dashboard is an open-source Java web application built on the database created using [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql). The web application can be easily configured in order to provide out-of-the-box several reports, i.e. age distribution, sex distribution, religion distribution, average number household members, etc. 
+CsPro Dashboard is an open-source Java ##Spring-based## web application built on the database created using [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql). The web application can be easily configured in order to provide out-of-the-box several reports, i.e. age distribution, sex distribution, religion distribution, average number household members, etc. 
 
 ## What you’ll need
 
@@ -60,7 +60,7 @@ If you have successfully completed these steps, you have a microdata Mysql datab
 > mysql -u dstUsername -p < WORKING_PATH\dashboard.sql
 > CsPro2Sql -e update -p Household.properties –cc
 ```
-The script will populate the `USER/ROLES` tables with two users:
+The script will populate the `USER/ROLES` table with two users:
 ```
 Username: admin@dashboard.it
 Password: admin
@@ -85,8 +85,13 @@ Now you can perform your first build of the application.
 If the build process ends successfully, you are ready to run the application. 
 The application is built using the open source framework Spring Boot, which generates an executable jar (that can be run from the command line). Spring Boot creates a stand-alone Spring based Applications, with an embedded Tomcat, that you can "just run".
 ```
-java –jar  cspro-dashboard.jar
+java –jar csprodashboard.jar
 ```
+
+It is also possible to create a war file that can be deployed on a servlet container such as Tomcat. Simply modify the maven build profile to DashboardWar.
+
+## Acknowledgement
+The team responsible of [Census and Survey Processing System (CSPro)](https://www.census.gov/population/international/software/cspro/) 
 
 ## License
 CSProDashboard is EUPL-licensed
