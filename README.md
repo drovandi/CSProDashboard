@@ -30,7 +30,9 @@ You’ll build a web application that will provide out of the box :
   * CRUD (insert, delete, update);
 
 ## How to build
-In order to simplify the description of the build steps, we assume that your [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql) property file is the following (eg. `Household.properties`):
+
+##Create the Dashboard database
+In order to describe the build steps, we assume that your [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql) property file is the following (eg. `Household.properties`):
 ```
 # Source CsPro database
 db.source.uri=jdbc:mysql://localhost:3306
@@ -67,8 +69,9 @@ Role: ADMIN
 Username: guest@dashboard.it
 Password: guest
 Role: GUEST
-```  
-From your IDE select and open the unzipped maven project.
+``` 
+##Build the Dashboard web application
+Download the source code and open it with your favorite IDE.
 As a first step check the content of the application.properties file, located in the path `Other Sources > src/main/resources`:
 
 ```
@@ -80,11 +83,9 @@ The properties should match the destination microdata MySQL specified in the `Ho
 
 Now you can perform your first build of the application.
 If the build process ends successfully, you are ready to run the application. 
-The application is built using the open source framework Spring Boot, which generates an 
-executable jar (that can be run from the command line). Spring Boot creates a stand-alone Spring 
-based Applications, with an embedded Tomcat, that you can "just run".
+The application is built using the open source framework Spring Boot, which generates an executable jar (that can be run from the command line). Spring Boot creates a stand-alone Spring based Applications, with an embedded Tomcat, that you can "just run".
 ```
-java –jar  mecbox-1.0.jar
+java –jar  cspro-dashboard.jar
 ```
 
 ## License
