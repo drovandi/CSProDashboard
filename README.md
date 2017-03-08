@@ -1,6 +1,6 @@
 # CSPro Dashboard
 
-CsPro Dashboard is an open-source Java ##Spring-based## web application built on the database created using [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql). The web application can be easily configured in order to provide out-of-the-box several reports, i.e. age distribution, sex distribution, religion distribution, average number household members, etc. 
+CsPro Dashboard is an open-source Java Spring-based web application built on the database created using [CsPro2Sql](https://github.com/mauroIstat/CsPro2Sql). The web application can be easily configured in order to provide out-of-the-box several reports, i.e. age distribution, sex distribution, religion distribution, average number household members, etc. 
 
 ## What you’ll need
 
@@ -14,7 +14,6 @@ Further, in order to build the CsPro Dashboard application, your environment sho
 * A favorite text editor or IDE
 * JDK 1.8 or later
 * Maven 3.0+
-* Mysql Server
 
 ## What you’ll build
 
@@ -54,12 +53,29 @@ Assuming that your working path is `WORKING_PATH` and that the properties file i
 > mysql -u dstUsername -p < WORKING_PATH\microdata.sql
 > CsPro2Sql -e loader -p Household.properties –cc
 ```
-If you have successfully completed these steps, you have a microdata Mysql database `cspro_microdata` containing the data from the CsPro 7.0 database. Now you are ready to execute the commands that generate the tables used by the CSPro Dashboard:
+If you have successfully completed these steps, you have a microdata Mysql database `cspro_microdata` containing the data from the CsPro 7.0 database. Now you are ready to execute the commands that generate the tables used by the CSPro Dashboard.
+First of all you need to define the following properties:
+```
+# monitor config
+table.individual=INDIVIDUAL
+column.individual.sex=P307
+column.individual.age=P308
+column.individual.religion=P310
+column.individual.sex.value.male=1
+column.individual.sex.value.female=2
+column.questionnaire.ea=ID101,ID102,ID103,ID104,ID105,ID106,ID107,ID108,ID109
+column.questionnaire.ea.name=Region,Zone,Woreda,City,Subcity,Psa,Sa,Kebele,EA
+column.questionnaire.ea.description=P304A,,,,,,,,
+range.individual.age=0,5,11,17,26,35,46,56,66,79,100
+```
+
+These properties are used by CsPro2Sql monitor engine in order to generate the report tables. Now you can execute the following commands:
 ```
 > CsPro2Sql -e monitor -p Household.properties –o WORKING_PATH\dashboard.sql
 > mysql -u dstUsername -p < WORKING_PATH\dashboard.sql
 > CsPro2Sql -e update -p Household.properties –cc
 ```
+
 The script will populate the `USER/ROLES` table with two users:
 ```
 Username: admin@dashboard.it
