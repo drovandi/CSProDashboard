@@ -46,13 +46,18 @@ db.dest.username=dstUsername
 db.dest.password=dstPassword
 db.dest.table.prefix=h
 ```
-And that you have already performed the following execution steps: 
+And that you have already performed the following execution steps. Assuming that your working path is `WORKING_PATH` and that the properties file is stored in your `WORKING_PATH`: 
 ```
-> CsPro2Sql -e schema -p Household.properties –o microdata.sql
-> mysql -u dstUsername -p < microdata.sql
+> CsPro2Sql -e schema -p Household.properties –o WORKING_PATH\microdata.sql
+> mysql -u dstUsername -p < WORKING_PATH\microdata.sql
 > CsPro2Sql -e loader -p Household.properties –cc
 ```
-This means that you have a microdata Mysql database `cspro_microdata` containing the data from the CsPro 7.0 database. Now you are ready to execute the commands that generate the report tables, that will be displayed by the CSPro Dashboard
+This means that you have a microdata Mysql database `cspro_microdata` containing the data from the CsPro 7.0 database. Now you are ready to execute the commands that generate the tables used by the CSPro Dashboard:
+```
+> CsPro2Sql -e monitor -p Household.properties –o WORKING_PATH\dashboard.sql
+> mysql -u dstUsername -p < WORKING_PATH\dashboard.sql
+> CsPro2Sql -e update -p Household.properties –cc
+```
 
 ## License
 CSProDashboard is EUPL-licensed
