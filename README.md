@@ -79,11 +79,11 @@ These properties are used by CsPro2Sql monitor engine in order to generate the r
 The script will populate the `USER/ROLES` table with two users:
 ```
 Username: admin@dashboard.it
-Password: admin
+Password: dashboard
 Role: ADMIN
 
 Username: guest@dashboard.it
-Password: guest
+Password: dashboard
 Role: GUEST
 ``` 
 ##Build the web application
