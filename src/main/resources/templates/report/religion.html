@@ -10,7 +10,7 @@
     </head>
     <body>
 
-        <div class="wrapper">
+        <div class="wrapper">    
             <header th:replace="layout :: site-header" />
             <aside th:replace="layout :: site-aside" />
 
@@ -21,36 +21,38 @@
                         <small>Chart</small>
                     </div>
 
-                    <div class="container-fluid loading">
-                        <div class="row mb-lg">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4">
+                    <div class="container-fluid loading">                            
+                        <div class="row mb-lg">                                
+                            <div class="col-sm-4"></div> 
+                            <div class="col-sm-4">  
                                 <div class="panel panel-default shadow-effect">
-                                    <div class="panel-body">
+                                    <div class="panel-body"> 
                                         <div class="loader">
                                             <i class="fa fa-spinner fa-spin fa-4x fa-fw"></i>
                                             <span><strong>Loading data...</strong></span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-4"></div>
-                            </div>
-                        </div>
+                                </div> 
+                                <div class="col-sm-4"></div> 
+                            </div> 
+                        </div>                         
                     </div>
 
                     <div class="container-fluid religion-fluid">
                         <div class="row mb-lg">
-                            <div class="panel panel-default col-lg-6">
-                                <div class="panel-body">
-                                    <h3 class="page-header page-header-data">Data</h3>
-                                    <table id="religionlist" class="table table-striped" cellspacing="0" width="100%">
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="panel panel-default col-lg-6">
-                                <div class="panel-body">
-                                    <h3 class="page-header page-header-doughnut">Doughnut chart</h3>
-                                    <canvas id="doughnut-chart-area" />
+                            <div class="panel panel-default ">
+                                <div class="panel-body">                                
+                                    <div class="col-lg-6">
+                                        <h3 class="page-header page-header-data">Data</h3>
+                                        <table id="religionlist" class="table table-striped" cellspacing="0" width="100%">
+                                        </table>
+                                    </div>
+                                    <div class="col-lg-6" >
+                                        <h3 class="page-header page-header-doughnut">Doughnut chart</h3>
+                                        <div class="row spacer"></div>
+                                        <canvas id="doughnut-chart-area" />
+                                        <div class="spacer"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

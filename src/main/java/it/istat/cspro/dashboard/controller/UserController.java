@@ -111,5 +111,4 @@ public class UserController extends BaseController {
         model.addAttribute("allRoles", allRoles);
         return "users/userlist";
     }
-
 }

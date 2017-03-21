@@ -31,17 +31,23 @@ $(document).ready(function () {
             individuals = parseInt(arrLabelData[i][1]);
             arrLabelData[i][2] = 100 * individuals / individualsTotal;
         }
+
         $('.loading').hide();
+
         $('.religion-fluid').animate(
                 {queue: false, duration: 500}
         ).fadeIn('clip', '', 500, callBackShow);
+
         renderTable();
         renderDoughnut();
+
     });
+
 });
 
 function renderTable() {
     var table = $("#religionlist").DataTable({
+        //dom: 'Bfrtip',
         dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
@@ -68,19 +74,23 @@ function renderTable() {
         "columns": [
             {'title': 'Religion'},
             {'title': 'Individuals', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'},
+            //{'title': 'Percentage (%)',render: $.fn.dataTable.render.number(',', '.', 1, '%'),'className': 'numeric'}
             {'title': 'Percentage (%)', render: $.fn.dataTable.render.number(',', '.', 3), 'className': 'numeric'}
-        ],
-        "order": [[1, "desc"]]
+        ]
+
     });
+    //table.buttons().container().appendTo('#religionlist_wrapper .col-sm-6:eq(0)');
 }
 
 function renderDoughnut() {
+
     var configDoughnut = {
         type: 'doughnut',
         data: {
             datasets: [{
                     data: arrData,
-                    backgroundColor: arrColor
+                    backgroundColor: arrColor, //gradient,/
+                    //label: 'RELIGION/INDIVIDUALS'
                 }],
             labels: arrLabel
         },
@@ -89,6 +99,12 @@ function renderDoughnut() {
             legend: {
                 position: 'right'
             },
+            /*
+             title: {
+             display: false,
+             text: "RELIGION/INDIVIDUALS"
+             },
+             */
             animation: {
                 animateScale: true,
                 animateRotate: true
@@ -110,3 +126,4 @@ function callBackShow() {
         $("#center").fadeIn();
     }, 1000);
 }
+

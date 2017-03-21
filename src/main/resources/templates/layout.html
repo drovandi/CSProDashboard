@@ -125,6 +125,23 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <!-- Paolo -->
+                                <li class="nav-body">
+                                    <a href="#cspro2sql" title="cspro2sql" data-toggle="collapse"
+                                       class="collapsed" aria-expanded="false">
+                                        <i class="fa fa-database"></i>
+                                        <span>CsPro2Sql</span>
+                                    </a>
+                                    <ul id="cspro2sql" class="nav sidebar-subnav collapse" aria-expanded="false">
+                                        <li id="dictionary" sec:authorize="hasAuthority('ADMIN')">
+                                            <a title="Dictionary" th:href="@{/cspro2sql/dictionary}">
+                                                <i class="fa fa-book"></i>
+                                                <span>Dictionary</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- Paolo -->
                             </ul>
                         </nav>
                     </div>
