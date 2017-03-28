@@ -30,6 +30,8 @@ public class UserCreateForm {
     @Size(min = 2, max = 30)
     private String role;
 
+    public UserCreateForm() {}
+    
     public UserCreateForm(User user) {
         this.id = user.getId();
         this.email = user.getEmail();
