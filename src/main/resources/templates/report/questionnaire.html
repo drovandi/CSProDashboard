@@ -7,19 +7,6 @@
         <script type="text/javascript">
             $(function () {
                 setMenuActive("report-questionnaire");
-                $.getJSON(ctx + "/rest/report/regional", function (report) {
-                    $('.totalPercentage').ClassyLoader({
-                        percentage: 100. * report.value / 256,
-                        speed: 20,
-                        diameter: 70,
-                        fontSize: '40px',
-                        roundedLine: true,
-                        fontColor: '#34788c',
-                        lineColor: '#34788c',
-                        remainingLineColor: 'rgba(200,200,200,0.4)',
-                        lineWidth: 10
-                    });
-                });
                 $.getJSON(ctx + "/rest/report/questionnaire", function (report) {
                     $('#questionnaireCount1').text(report.total);
                     $('#questionnaireCount2').text(report.avg_individual_male);
@@ -95,17 +82,6 @@
                                             <div class="h2 mt0" id="questionnaireCount4"></div>
                                             <div class="text-uppercase">Avg Female</div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END WIDGET -->
-
-                            <!-- START WIDGET -->
-                            <div class="col-lg-3">
-                                <div class="panel panel-default">
-                                    <div class="panel-body text-center">
-                                        <div class="text-info">EAs Returned</div>
-                                        <canvas class="totalPercentage"></canvas>
                                     </div>
                                 </div>
                             </div>

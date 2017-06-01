@@ -28,6 +28,10 @@ public class ReportRestController {
                 return dataService.getReligionReport();
             case "household":
                 return processService.getHouseholdByEAReport();
+            case "householdBySubcity":
+                return processService.getHouseholdBySubcityReport();
+            case "householdByWoreda":
+                return processService.getHouseholdByWoredaReport();
         }
         return new ArrayList(0);
     }
@@ -41,6 +45,8 @@ public class ReportRestController {
                 return dataService.getQuestionnaireReport();
             case "regional":
                 return dataService.getRegionalEAReport();
+            case "totals":
+                return processService.getTotalExpected();
         }
         return new ArrayList(0);
     }
