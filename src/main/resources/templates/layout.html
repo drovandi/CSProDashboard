@@ -66,27 +66,27 @@
                                         <span>Process Report</span>
                                     </a>
                                     <ul id="process" class="nav sidebar-subnav collapse" aria-expanded="false">
-                                        <li id="report-total-ea" th:if="${reports.contains('r_total_ea')}">
+                                        <li id="report-total-ea" th:if="${reports.contains('r_total')}">
                                             <a title="Total EAs" th:href="@{/report/totalEa}">
                                                 <span>Total EAs</span>
                                             </a>
                                         </li>
-                                        <li id="report-total-household" th:if="${reports.contains('r_total_household')}">
+                                        <li id="report-total-household" th:if="${reports.contains('r_total')}">
                                             <a title="Total Households" th:href="@{/report/totalHousehold}">
                                                 <span>Total Households</span>
                                             </a>
                                         </li>
-                                        <li id="report-household-woreda" th:if="${reports.contains('r_household_by_woreda')}">
+                                        <li id="report-household-woreda" th:if="${reports.contains('r_household_expected_by_woreda')}">
                                             <a title="Household by Woreda" th:href="@{/report/householdWoreda}">
                                                 <span>Household by Woreda</span>
                                             </a>
                                         </li>
-                                        <li id="report-household-subcity" th:if="${reports.contains('r_household_by_subcity')}">
+                                        <li id="report-household-subcity" th:if="${reports.contains('r_household_expected_by_subcity')}">
                                             <a title="Household by Subcity" th:href="@{/report/householdSub}">
                                                 <span>Household by Subcity</span>
                                             </a>
                                         </li>
-                                        <li id="report-household" th:if="${reports.contains('r_household_by_ea')}">
+                                        <li id="report-household" th:if="${reports.contains('r_household_expected_by_ea')}">
                                             <a title="Household by EA" th:href="@{/report/household}">
                                                 <span>Household by EA</span>
                                             </a>

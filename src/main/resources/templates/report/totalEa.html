@@ -8,9 +8,9 @@
             $(function () {
                 setMenuActive("report-total-ea");
                 $.getJSON(ctx + "/rest/report/totals", function (report) {
-                    $('#eaFieldwork').text(report.eaFieldwork);
-                    $('#eaFreshlist').text(report.eaFreshlist);
-                    $('#eaExpected').text(report.eaExpected);
+                    $('#eaFieldwork').text(format(report.eaFieldwork));
+                    $('#eaFreshlist').text(format(report.eaFreshlist));
+                    $('#eaExpected').text(format(report.eaExpected));
                     $('.fieldworkFreshlist').ClassyLoader({
                         percentage: 100. * report.eaFieldwork / report.eaFreshlist,
                         speed: 20,
@@ -58,7 +58,7 @@
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">
-                        Total EAs
+                        Total Enumeration Areas
                         <small>Table</small>
                     </div>
                     <div class="container-fluid">
@@ -70,7 +70,7 @@
                                 <div class="panel widget bg-purple">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-purple-dark ">
-                                            <em class="fa fa-file-text-o fa-3x"></em>
+                                            <em class="fa fa-briefcase fa-3x"></em>
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="eaFieldwork"></div>
@@ -84,7 +84,7 @@
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
-                                            <em class="fa fa-child fa-3x"></em>
+                                            <em class="fa fa-file-text-o fa-3x"></em>
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="eaFreshlist"></div>
@@ -98,7 +98,7 @@
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
-                                            <em class="fa fa-child fa-3x"></em>
+                                            <em class="fa fa-hourglass-end fa-3x"></em>
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="eaExpected"></div>

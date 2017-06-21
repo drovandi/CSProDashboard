@@ -8,9 +8,9 @@
             $(function () {
                 setMenuActive("report-total-household");
                 $.getJSON(ctx + "/rest/report/totals", function (report) {
-                    $('#householdFieldwork').text(report.householdFieldwork);
-                    $('#householdFreshlist').text(report.householdFreshlist);
-                    $('#householdExpected').text(report.householdExpected);
+                    $('#householdFieldwork').text(format(report.householdFieldwork));
+                    $('#householdFreshlist').text(format(report.householdFreshlist));
+                    $('#householdExpected').text(format(report.householdExpected));
                     $('.fieldworkFreshlist').ClassyLoader({
                         percentage: 100. * report.householdFieldwork / report.householdFreshlist,
                         speed: 20,
@@ -70,7 +70,7 @@
                                 <div class="panel widget bg-purple">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-purple-dark ">
-                                            <em class="fa fa-file-text-o fa-3x"></em>
+                                            <em class="fa fa-briefcase fa-3x"></em>
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="householdFieldwork"></div>
@@ -84,7 +84,7 @@
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
-                                            <em class="fa fa-child fa-3x"></em>
+                                            <em class="fa fa-file-text-o fa-3x"></em>
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="householdFreshlist"></div>
@@ -98,7 +98,7 @@
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
-                                            <em class="fa fa-child fa-3x"></em>
+                                            <em class="fa fa-hourglass-end fa-3x"></em>
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="householdExpected"></div>

@@ -18,8 +18,8 @@ function populate(url, tableId) {
         for (var i in name) {
             columnsSet.push({title: name[i]});
         }
-        columnsSet.push({title: 'Fieldword', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
-        columnsSet.push({title: 'Freshlist', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
+        columnsSet.push({title: 'Fieldwork', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
+        columnsSet.push({title: 'Listing', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
         columnsSet.push({title: 'Expected', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
         columnsSet.push({title: 'Field/List', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'});
         columnsSet.push({title: 'Field/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'});

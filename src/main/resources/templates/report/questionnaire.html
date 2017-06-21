@@ -9,9 +9,9 @@
                 setMenuActive("report-questionnaire");
                 $.getJSON(ctx + "/rest/report/questionnaire", function (report) {
                     $('#questionnaireCount1').text(report.total);
-                    $('#questionnaireCount2').text(report.avg_individual_male);
-                    $('#questionnaireCount3').text(report.avg_individual);
-                    $('#questionnaireCount4').text(report.avg_individual_female);
+                    $('#questionnaireCount2').text(format(report.avg_individual_male));
+                    $('#questionnaireCount3').text(format(report.avg_individual));
+                    $('#questionnaireCount4').text(format(report.avg_individual_female));
                 });
             });
         </script>

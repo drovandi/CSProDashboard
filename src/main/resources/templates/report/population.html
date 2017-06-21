@@ -7,13 +7,13 @@
                 setMenuActive("report-population");
                 $.getJSON(ctx + "/rest/report/population", function (populationReport) {
                     $('#questionnaireCount1').text(populationReport.total);
-                    $('#questionnaireCount2').text(populationReport.age_avg);
+                    $('#questionnaireCount2').text(format(populationReport.age_avg));
                     $('#questionnaireCount3').text(populationReport.age_max);
                     $('#questionnaireCount4').text(populationReport.total_male);
-                    $('#questionnaireCount5').text(populationReport.age_avg_male);
+                    $('#questionnaireCount5').text(format(populationReport.age_avg_male));
                     $('#questionnaireCount6').text(populationReport.age_max_male);
                     $('#questionnaireCount7').text(populationReport.total_female);
-                    $('#questionnaireCount8').text(populationReport.age_avg_female);
+                    $('#questionnaireCount8').text(format(populationReport.age_avg_female));
                     $('#questionnaireCount9').text(populationReport.age_max_female);
                 });
             });

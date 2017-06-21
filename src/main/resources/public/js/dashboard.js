@@ -49,7 +49,11 @@ function toggleMenu() {
 }
 
 function format(n) {
-    return ("" + n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (Math.round(n) === n) {
+        return ("" + n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    var a = ("" + n).toString().split(".");
+    return format(parseInt(a[0])) + '.' + a[1].substr(0, 1);
 }
 
 function formatPercentage(a, b) {
@@ -59,23 +63,23 @@ function formatPercentage(a, b) {
 //write REST response user
 function writeMsgs(data, iddiv_msgs) {
 
-	$.each(data, function(index, msg) {
-		var classs = 'alert alert-info';
-		if (msg.type == 'INFO')
-			classs = 'alert alert-success';
-		else if (msg.type == 'ERROR')
-			classs = 'alert alert-danger';
-		var div = $('<div class="' + classs + '"><strong>' + msg.type
-				+ '</strong>: ' + msg.text + ' </div>"');
-		$("#" + iddiv_msgs).append(div);
+    $.each(data, function (index, msg) {
+        var classs = 'alert alert-info';
+        if (msg.type == 'INFO')
+            classs = 'alert alert-success';
+        else if (msg.type == 'ERROR')
+            classs = 'alert alert-danger';
+        var div = $('<div class="' + classs + '"><strong>' + msg.type
+                + '</strong>: ' + msg.text + ' </div>"');
+        $("#" + iddiv_msgs).append(div);
 
-	});
+    });
 }
 //write REST response user
 function writeMsgsError(msg, iddiv_msgs) {
 
-	var classs = 'alert alert-danger';
-	var div = $('<div class="' + classs + '">' + msg + ' </div>"');
-	$("#" + iddiv_msgs).append(div);
+    var classs = 'alert alert-danger';
+    var div = $('<div class="' + classs + '">' + msg + ' </div>"');
+    $("#" + iddiv_msgs).append(div);
 
 }
