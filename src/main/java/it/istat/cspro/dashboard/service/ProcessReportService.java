@@ -1,16 +1,12 @@
 package it.istat.cspro.dashboard.service;
 
 import it.istat.cspro.dashboard.dao.RTotalExpectedDao;
-import it.istat.cspro.dashboard.domain.RHouseholdExpectedByEA;
 import it.istat.cspro.dashboard.domain.RTotal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import it.istat.cspro.dashboard.dao.RHouseholdExpectedByEADao;
-import it.istat.cspro.dashboard.dao.RHouseholdExpectedBySubcityDao;
-import it.istat.cspro.dashboard.dao.RHouseholdExpectedByWoredaDao;
-import it.istat.cspro.dashboard.domain.RHouseholdExpectedBySubcity;
-import it.istat.cspro.dashboard.domain.RHouseholdExpectedByWoreda;
+import it.istat.cspro.dashboard.dao.RHouseholdExpectedDao;
+import it.istat.cspro.dashboard.domain.RHouseholdExpectedBase;
 
 /**
  *
@@ -20,24 +16,12 @@ import it.istat.cspro.dashboard.domain.RHouseholdExpectedByWoreda;
 public class ProcessReportService {
 
     @Autowired
-    private RHouseholdExpectedByEADao rHouseholdByEADao;
-    @Autowired
-    private RHouseholdExpectedBySubcityDao rHouseholdBySubcityDao;
-    @Autowired
-    private RHouseholdExpectedByWoredaDao rHouseholdByWoredaDao;
-    @Autowired
     private RTotalExpectedDao rTotalExpectedDao;
+    @Autowired
+    private RHouseholdExpectedDao rHouseholdExpectedDao;
 
-    public List<RHouseholdExpectedByEA> getHouseholdByEAReport() {
-        return rHouseholdByEADao.findAll();
-    }
-    
-    public List<RHouseholdExpectedBySubcity> getHouseholdBySubcityReport() {
-        return rHouseholdBySubcityDao.findAll();
-    }
-    
-    public List<RHouseholdExpectedByWoreda> getHouseholdByWoredaReport() {
-        return rHouseholdByWoredaDao.findAll();
+    public List<RHouseholdExpectedBase> getHouseholdExpectedBy(String table) {
+        return rHouseholdExpectedDao.getExpectedReportBy(table);
     }
     
     public RTotal getTotalExpected() {

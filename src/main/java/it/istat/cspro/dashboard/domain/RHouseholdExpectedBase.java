@@ -1,36 +1,23 @@
 package it.istat.cspro.dashboard.domain;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 /**
  *
  * @author Istat Cooperation Unit
  */
-@MappedSuperclass
-public abstract class RHouseholdExpectedBase implements Serializable {
+public class RHouseholdExpectedBase implements Serializable {
 
-    private static final long serialVersionUID = 8067791712877389749L;
+    private static final long serialVersionUID = -9167852144435794751L;
 
-    @Id
-    @Column(name = "ID", unique = true, nullable = false)
     private int id;
-    @Column(name = "NAME")
     private String name;
-    @Column(name = "FIELD")
     private Integer field;
-    @Column(name = "FRESHLIST")
     private Integer freshlist;
-    @Column(name = "EXPECTED")
     private Integer expected;
-    @Column(name = "FIELD_FRESHLIST")
-    private Double fieldFreshlist;
-    @Column(name = "FIELD_EXPECTED")
-    private Double fieldExpected;
-    @Column(name = "FRESHLIST_EXPECTED")
-    private Double freshlistExpected;
+    private Double field_freshlist;
+    private Double field_expected;
+    private Double freshlist_expected;
 
     public int getId() {
         return id;
@@ -72,28 +59,28 @@ public abstract class RHouseholdExpectedBase implements Serializable {
         this.expected = expected;
     }
 
-    public Double getFieldFreshlist() {
-        return fieldFreshlist;
+    public Double getField_freshlist() {
+        return field_freshlist;
     }
 
-    public void setFieldFreshlist(Double fieldFreshlist) {
-        this.fieldFreshlist = fieldFreshlist;
+    public void setField_freshlist(Double field_freshlist) {
+        this.field_freshlist = field_freshlist;
     }
 
-    public Double getFieldExpected() {
-        return fieldExpected;
+    public Double getField_expected() {
+        return field_expected;
     }
 
-    public void setFieldExpected(Double fieldExpected) {
-        this.fieldExpected = fieldExpected;
+    public void setField_expected(Double field_expected) {
+        this.field_expected = field_expected;
     }
 
-    public Double getFreshlistExpected() {
-        return freshlistExpected;
+    public Double getFreshlist_expected() {
+        return freshlist_expected;
     }
 
-    public void setFreshlistExpected(Double freshlistExpected) {
-        this.freshlistExpected = freshlistExpected;
+    public void setFreshlist_expected(Double freshlist_expected) {
+        this.freshlist_expected = freshlist_expected;
     }
 
 }

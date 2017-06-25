@@ -8,9 +8,9 @@ function populate(url, tableId) {
             a.push(_data[i].field);
             a.push(_data[i].freshlist);
             a.push(_data[i].expected);
-            a.push(_data[i].fieldFreshlist);
-            a.push(_data[i].fieldExpected);
-            a.push(_data[i].freshlistExpected);
+            a.push(_data[i].field_freshlist);
+            a.push(_data[i].field_expected);
+            a.push(_data[i].freshlist_expected);
             data.push(a);
         }
         var name = json[0].name.split('#');

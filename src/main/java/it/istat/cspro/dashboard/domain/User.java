@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author framato
+ * @author Istat Cooperation Unit
  */
 @Entity
 @Table(name = "c_user")
