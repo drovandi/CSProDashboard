@@ -1,6 +1,9 @@
 package it.istat.cspro.dashboard.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -8,7 +11,7 @@ import java.io.Serializable;
  */
 public class RHouseholdExpectedBase implements Serializable {
 
-    private static final long serialVersionUID = -9167852144435794751L;
+    private static final long serialVersionUID = 964092318764339808L;
 
     private int id;
     private String name;
@@ -33,6 +36,17 @@ public class RHouseholdExpectedBase implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List getSplitted() {
+        List values = new ArrayList(Arrays.asList(name.split("#")));
+        values.add(field);
+        values.add(freshlist);
+        values.add(expected);
+        values.add(field_freshlist);
+        values.add(field_expected);
+        values.add(freshlist_expected);
+        return values;
     }
 
     public Integer getField() {

@@ -1,29 +1,20 @@
 
 function populate(url, tableId) {
     $.getJSON(url, function (json) {
-        var _data = json.splice(1);
-        var data = [];
-        for (var i in _data) {
-            var a = _data[i].name.split('#');
-            a.push(_data[i].field);
-            a.push(_data[i].freshlist);
-            a.push(_data[i].expected);
-            a.push(_data[i].field_freshlist);
-            a.push(_data[i].field_expected);
-            a.push(_data[i].freshlist_expected);
-            data.push(a);
+        var data = json.splice(1);
+        for (var i in data) {
+            data[i] = data[i].splitted;
         }
-        var name = json[0].name.split('#');
         var columnsSet = [];
-        for (var i in name) {
-            columnsSet.push({title: name[i]});
+        for (var i in json[0].splitted) {
+            columnsSet.push({title: json[0].splitted[i]});
         }
-        columnsSet.push({title: 'Fieldwork', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
-        columnsSet.push({title: 'Listing', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
-        columnsSet.push({title: 'Expected', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'});
-        columnsSet.push({title: 'Field/List', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'});
-        columnsSet.push({title: 'Field/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'});
-        columnsSet.push({title: 'List/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'});
+        columnsSet[columnsSet.length - 6] = {title: 'Fieldwork', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'};
+        columnsSet[columnsSet.length - 5] = {title: 'Listing', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'};
+        columnsSet[columnsSet.length - 4] = {title: 'Expected', render: $.fn.dataTable.render.number(',', '.', 0), 'className': 'numeric'};
+        columnsSet[columnsSet.length - 3] = {title: 'Field/List', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'};
+        columnsSet[columnsSet.length - 2] = {title: 'Field/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'};
+        columnsSet[columnsSet.length - 1] = {title: 'List/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'};
         __populate(data, columnsSet, tableId);
     });
 }

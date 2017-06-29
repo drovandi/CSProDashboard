@@ -6,14 +6,7 @@ var arrLabelData = [];
 
 $(document).ready(function () {
     setMenuActive("report-religion");
-    var jqxhr = $.getJSON(_ctx + "/rest/report/list/religion", function (json) {
-        console.log("success");
-    }).done(function (json) {
-        console.log("second success");
-    }).fail(function (json) {
-        console.log("error");
-    }).always(function (json) {
-        console.log("complete");
+    $.getJSON(_ctx + "/rest/report/list/religion").always(function (json) {
         var startFrom = 55;
         var individualsTotal = 0;
         $.each(json, function (i, obj) {
