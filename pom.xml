@@ -88,15 +88,15 @@
     <profiles>
         <profile>
             <id>dashboardDev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <packaging.type>jar</packaging.type>
             </properties>
         </profile>
          <profile>
             <id>dashboardWar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <packaging.type>war</packaging.type>
             </properties>
