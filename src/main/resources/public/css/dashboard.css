@@ -1,19 +1,43 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 2-gen-2017, 17.08.03
-    Author     : mbruno
-*/
-html, body{
+
+body {
+    min-height: 100%;
+    font-family: Source Sans Pro,sans-serif;
+    color: #555;
+    background-color: #f5f7fa;
+}
+body, html {
     height: 100%;
     background-color: #f1f3f7;
+    overflow-y: visible;
 }
-footer {
-    background-color: white;
+
+/* login */
+
+.wd-xl {
+    width: 320px;
 }
+.block-center {
+    margin: 0 auto;
+}
+.mt-xl {
+    margin-top: 30px!important;
+}
+
+.panel-heading {
+
+    font-size: 18px !important;
+    color: #fff;
+}
+.form-control {
+    box-shadow: 0 0 0 #000!important;
+}
+
+.form-control+.form-control-feedback{
+    right: 0;
+    left: auto;
+    padding: 9px;
+}
+
 .wrapper {
     position: relative;
     width: 100%;
@@ -22,54 +46,20 @@ footer {
     overflow-x: hidden;
 }
 
-a{
-    color: #34788c;
-}
-
-a:hover{
-    text-decoration: none;
-}
 /* START HEADER */
-.navbar {
-    position: relative;
-    min-height: 55px;
-    margin-bottom: 21px;
-    border: 1px solid transparent;
-}
-.navbar, .navbar .dropdown-menu, .topnavbar{
-    filter: none!important;
-    color: white!important;
-    font-size: 18pt;
-    padding: 8px 15px;
-}
-
 .topnavbar {
-    border: 0;
-    background-color: #34788c;
-    background-repeat: repeat-x;
-    border-radius: 0px;
-    z-index: 1050;
-    margin-bottom: 0;
-    padding-top: 12px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+    z-index: 120;
+    min-width: 350px;
 }
-
-.topnavbar a {
-    color: white!important;
-    font-size: 14px;
-    padding: 5px 12px;
-    display: block;
-}
-
-.topnavbar a:hover {
-    color: #34788c!important;
-    text-shadow: none;
-    background-color: #e1e7ef;
-    border-radius: 3px;
+.navbar-brand {
+    font-size:25px !important;
+    padding: 5px 15px !important;
 }
 .nav .fa {
     margin-right: 5px;
 }
-
 .signout{
     margin-right:0px;
     margin-top: 20px;
@@ -77,7 +67,10 @@ a:hover{
 .signout .fa{
     margin-right:0px!important;
 }
-
+.language{
+    margin-right:0px;
+    margin-top: 20px;
+}
 /* END HEADER */
 
 /* START LEFT SIDEBAR */
@@ -90,33 +83,37 @@ a:hover{
     z-index: 116;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    background-color: #fff;
 }
 .wrapper>.aside .aside-inner {
     overflow: hidden;
-    padding-top: 70px;
+    padding-top: 60px;
     height: 100%;
     width: 220px;
 }
 .sidebar {
     height: 100%;
     padding-bottom: 20px;
-    background-color: #fff;
-    overflow-y: auto;
-    border-right: 1px rgba(0,0,0,.15) solid;
+    overflow-y: hidden;
+    border-right: 1px solid #ddd;
+    background-color: #fafbfc;
 }
-
+.sidebar-title {
+    padding-top: 20px;
+    padding-left: 10px;
+}
 .sidebar .nav-heading {
     padding: 12px 15px;
-    color: #333;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: .035em;
     pointer-events: none;
     cursor: default;
 }
 
 .sidebar>.nav {
-    position: relative;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+
 }
 .sidebar>.nav>.nav-heading:first-child {
     padding-top: 22px;
@@ -129,18 +126,11 @@ a:hover{
     padding-left: 42px;
     background-color: transparent!important;
 }
-.active {
-    background-color: #e1e7ef;
-}
-
 .toggle-menu {
     font-size: 20px;
-    left: 188px;
-    top: 92px;
-    position: absolute;
+    padding-left: 90px;
     z-index: 200;
     cursor: pointer;
-    color: #34788c;
 }
 .aside.toggle-off {
     margin-left: -170px;
@@ -164,31 +154,26 @@ aside.toggle-off .active {
 .content-wrapper {
     padding: 20px;
     width: 100%;
-    border-top: 1px solid rgba(0,0,0,.15);
+    border-top: 1px solid #ddd;
     margin-top: -1px;
 }
 .content-wrapper > .content-heading, .content-wrapper>h3 {
     margin: -20px;
+    margin-top: 42px;
     margin-bottom: 20px;
-    padding: 20px;
-    font-size: 24px;
+    padding: 10px;
+    font-size: 20px;
     line-height: 1.1;
     color: #333;
     font-weight: 400;
     background-color: #fafbfc;
-    border-bottom: 1px solid #cfdbe2
+    border-bottom: 1px solid #ddd;
 }
 .content-wrapper>.content-heading>small, .content-wrapper>h3>small {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     color: #909fa7;
 }
-.panel .panel-heading {
-    border-bottom: 0;
-    font-size: 14px;
-    background-color: #fff;
-}
-/* END CONTAINER */
 
 /* START FOOTER */
 .wrapper>footer, .wrapper>section {
@@ -200,7 +185,8 @@ aside.toggle-off .active {
     right: 0;
     bottom: 0;
     height: 60px;
-    border-top: 1px solid #e4eaec;
+    border-top: 1px solid #ddd;
+    background-color: #fafbfc;
     padding: 20px;
     z-index: 109;
 }
@@ -262,119 +248,144 @@ aside.toggle-off .active {
 section, footer {
     min-width: 400px;
 }
-
-/* START DATA TABLE */
-table.dataTable.no-footer, th {
-    border-bottom: 1px solid #111 !important;
-}
-td {
-    border-top: 0;
-}
-.even {
-    background-color: #f1f3f7;
-}
-
-.numeric {
-    text-align: right!important;   
-}
-
-.page-header{
-    border-bottom: 1px solid #ddd !important;
-}
-
-/* END DATA TABLE */
-
-.page-header-data{ 
-    margin-top:  10px!important;
-}
-.page-header-doughnut{ 
-    margin-top:  10px!important;
-    /*margin-bottom:  120px!important;*/
-}
 .spacer{
     display: block;
-    margin: 0; 
-    padding: 0; 
-    border: 0; 
-    font-size: 0; 
-    width: 100%; 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+    width: 100%;
     height: 45px;
 }
-.religion-fluid,sexdistribution-fluid{    
-    display: none;
-}
+
 .loading{
-    padding-top: 15%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 100px;
+    margin: auto;
 }
 .loader{
     padding: 5%;
     text-align: center;
 }
 .shadow-effect{
-    box-shadow: 0 10px 6px -6px #777;
-}           
-
-
-/* color Button */
-.btn-primary{
-  background-color: #34788c !important;
-}
-/*
- .panel-default>.panel-heading {
-    color: #34788c !important;   
-    background-color: #f5f5f5 !important;
-    border-color: #ddd !important;
+    box-shadow: 0 6px 6px -6px #777;
 }
 
-.panel-heading {
-    padding: 10px 15px !important;
-    border-bottom: 1px solid transparent !important;
-    border-top-left-radius: 3px !important;
-    border-top-right-radius: 3px !important;;
-}
-*/
-/* colore button quando la table si restringe */
-.pagination>.active>a, 
-.pagination>.active>a:focus,
-.pagination>.active>a:hover, 
-.pagination>.active>span, 
-.pagination>.active>span:focus,
-.pagination>.active>span:hover {
-    
-    background-color:  #34788c !important;
-    border-color:  #34788c !important;
-    color: #fff !important;
-    
-    border-top-color: rgb(51, 122, 183);
-    border-right-color: rgb(51, 122, 183);
-    border-bottom-color: rgb(51, 122, 183);
-    border-left-color: rgb(51, 122, 183);
-   
-}
-.pagination>li>a, .pagination>li>span {
-    color:  #111 !important;  
+.info-bottom{
+    padding-top:35px;
+    padding-left:15px;
+    padding-bottom:15px;
 }
 
-.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-    background-color:  #34788c !important;
-    border-color:  #34788c !important;
-    color: #fff !important;
-    
-    border-top-color: rgb(51, 122, 183);
-    border-right-color: rgb(51, 122, 183);
-    border-bottom-color: rgb(51, 122, 183);
-    border-left-color: rgb(51, 122, 183);
-   
+.modal-footer #msgs{
+    text-align: left;
+}
+/* Column Visibility */
+.msg-info {
+    background-image: linear-gradient(to bottom, #dff0d8 0px, #c8e5bc 100%);
+    background-repeat: repeat-x;
+    border-color: #b2dba1;
 
 }
-/* colore button quando la table si restringe */
-
-table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before{
-    content: '+';
-    background-color: #34788c !important;
+.msg-error {
+    background-image: linear-gradient(to bottom, #f2dede 0px, #e7c3c3 100%);
+    background-repeat: repeat-x;
+    border-color: #dca7a7;
 }
 
-table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
-    content: '-';
-    background-color: #d33333!important ;
+.info {
+    border-color: #d6e9c6;
+    padding: 10px;
+    text-align: left;
+}
+
+.well-legend {
+    font-size: 15px;
+    font-weight: bold;
+    width: auto;
+    padding: 2px 5px 2px 5px;
+    background: #fff;
+}
+legend {
+    border-bottom: none !important;
+}
+
+fieldset {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+.col-sm-1{padding-top:2px  !important;padding-right:8px  !important;}
+
+.close {
+    font-size: 18px !important;
+}
+.tab-pane{
+    overflow-y:auto;
+    overflow-x:auto;
+    margin:0;
+    height:600px;
+    width:100%;
+}
+.tab-pane-normalize{
+    overflow-y:auto;
+    overflow-x:auto;
+    margin-top:25px;
+    width:100%;
+    height:600px;
+}
+.no-visible{display:none;}
+.data-no-visible{display:none;}
+.data-visible{display:block;}
+
+.row-tablefonte.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+.container-fluid{padding:0 !important;}
+.container-wrapper{padding-bottom:0 !important;}
+.no-border{
+    border:none !important;
+    background-color:#fff !important;
+    padding-left:6px !important;
+    padding-right:6px !important;
+}
+.table>thead>tr>th {
+    border-bottom: 0 !important;
+}
+.my-row{margin-top:5px!important;}
+
+.button-up{
+    float: right !important;
+    padding-right: 5px!important;
+    padding-bottom: 8px!important;
+}
+.calendar{
+    line-height: 1.5 !important;
+}
+.border-none {
+    background-color: #d33333 !important;
+    border-right: 0px !important;
+}
+.white-color{
+    color:#fff;
+}
+#div-formfile{
+    display: none;
+}
+#messages{
+    padding-left: 0px;padding-right:0px;
+}
+
+.less-padding{padding-left: 5px !important;padding-right: 5px !important;}
+
+.hide-text{display: none;}
+.push-icon-right{
+    padding-left:160px;
+}
+.less-padding-icon-menu{
+    padding-left:15px!important;
 }

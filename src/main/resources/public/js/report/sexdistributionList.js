@@ -7,20 +7,11 @@ var arrColor = [];
 $(document).ready(function () {
     setMenuActive("report-sexdistribution");
     var jqxhr = $.getJSON(_ctx + "/rest/report/list/sexByAgeGroup", function (json) {
-        console.log("success");
-    }).done(function (json) {
-        console.log("second success");
-    }).fail(function (json) {
-        console.log("error");
-    }).always(function (json) {
-        console.log("complete");
         $.each(json, function (i, obj) {
             arrLabel.push(obj.range);
             arrDataMale.push(obj.male);
             arrDataFemale.push(obj.female);
         });
-
-        $('.loading').hide();
 
         $('.sexdistribution-fluid').animate(
           {queue: false, duration: 500}
