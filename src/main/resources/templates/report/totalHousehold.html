@@ -11,7 +11,7 @@
                     $('#householdFieldwork').text(format(report.householdFieldwork));
                     $('#householdFreshlist').text(format(report.householdFreshlist));
                     $('#householdExpected').text(format(report.householdExpected));
-                    $('.fieldworkFreshlist').ClassyLoader({
+                    if ($('.fieldworkFreshlist').length>0) $('.fieldworkFreshlist').ClassyLoader({
                         percentage: 100. * report.householdFieldwork / report.householdFreshlist,
                         speed: 20,
                         diameter: 70,
@@ -22,7 +22,7 @@
                         remainingLineColor: 'rgba(200,200,200,0.4)',
                         lineWidth: 10
                     });
-                    $('.fieldworkExpected').ClassyLoader({
+                    if ($('.fieldworkExpected').length>0) $('.fieldworkExpected').ClassyLoader({
                         percentage: 100. * report.householdFieldwork / report.householdExpected,
                         speed: 20,
                         diameter: 70,
@@ -33,7 +33,7 @@
                         remainingLineColor: 'rgba(200,200,200,0.4)',
                         lineWidth: 10
                     });
-                    $('.freshlistExpected').ClassyLoader({
+                    if ($('.freshlistExpected').length>0) $('.freshlistExpected').ClassyLoader({
                         percentage: 100. * report.householdFreshlist / report.householdExpected,
                         speed: 20,
                         diameter: 70,
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-lg-3 col-sm-6">
+                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.listing}">
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
@@ -88,13 +88,13 @@
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="householdFreshlist"></div>
-                                            <div class="text-uppercase">Fresh List</div>
+                                            <div class="text-uppercase">List</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-sm-6">
+                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.expected}">
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
@@ -113,10 +113,10 @@
                         <div class="row">
 
                             <!-- START WIDGET -->
-                            <div class="col-lg-3">
+                            <div class="col-lg-3" th:if="${dashboardInfo.listing}">
                                 <div class="panel panel-default">
                                     <div class="panel-body text-center">
-                                        <div class="text-info">Field Work / Fresh List</div>
+                                        <div class="text-info">Field Work / List</div>
                                         <canvas class="fieldworkFreshlist"></canvas>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                             <!-- END WIDGET -->
                             
                             <!-- START WIDGET -->
-                            <div class="col-lg-3">
+                            <div class="col-lg-3" th:if="${dashboardInfo.expected}">
                                 <div class="panel panel-default">
                                     <div class="panel-body text-center">
                                         <div class="text-info">Field word / Expected</div>
@@ -135,10 +135,10 @@
                             <!-- END WIDGET -->
 
                             <!-- START WIDGET -->
-                            <div class="col-lg-3">
+                            <div class="col-lg-3" th:if="${dashboardInfo.listing &amp;&amp; dashboardInfo.expected}">
                                 <div class="panel panel-default">
                                     <div class="panel-body text-center">
-                                        <div class="text-info">Fresh List / Expected</div>
+                                        <div class="text-info">Fresh / Expected</div>
                                         <canvas class="freshlistExpected"></canvas>
                                     </div>
                                 </div>

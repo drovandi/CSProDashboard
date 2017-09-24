@@ -1,9 +1,29 @@
 
 function populate(url, tableId) {
+    var clean;
+    if (!dashboardInfo.listing && !dashboardInfo.expected) {
+        clean = function (a) {
+            a.length = a.length - 5;
+        }
+    } else if (!dashboardInfo.listing) {
+        clean = function (a) {
+            a.splice(a.length - 1, 1);
+            a.splice(a.length - 2, 1);
+            a.splice(a.length - 3, 1);
+        };
+    } else if (!dashboardInfo.expected) {
+        clean = function (a) {
+            a.splice(a.length - 2, 2);
+            a.splice(a.length - 2, 1);
+        };
+    } else {
+        clean = function () {};
+    }
     $.getJSON(url, function (json) {
         var data = json.splice(1);
         for (var i in data) {
             data[i] = data[i].splitted;
+            clean(data[i]);
         }
         var columnsSet = [];
         for (var i in json[0].splitted) {
@@ -15,6 +35,7 @@ function populate(url, tableId) {
         columnsSet[columnsSet.length - 3] = {title: 'Field/List', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'};
         columnsSet[columnsSet.length - 2] = {title: 'Field/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'};
         columnsSet[columnsSet.length - 1] = {title: 'List/Exp', render: $.fn.dataTable.render.number(',', '.', 1), 'className': 'numeric'};
+        clean(columnsSet);
         __populate(data, columnsSet, tableId);
     });
 }

@@ -1,6 +1,7 @@
 package it.istat.cspro.dashboard.controller;
 
 import it.istat.cspro.dashboard.domain.CSPro2SqlReport;
+import it.istat.cspro.dashboard.domain.DashboardInfo;
 import it.istat.cspro.dashboard.service.DashboardService;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,6 +11,10 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+/**
+ *
+ * @author Istat Cooperation Unit
+ */
 public class BaseController {
 
     private static final Pattern HOUSEHOLD_BY_PATTERN = Pattern.compile("^r_household_expected_by_(.*)$");
@@ -36,6 +41,11 @@ public class BaseController {
             }
         }
         return reports;
+    }
+    
+    @ModelAttribute("dashboardInfo")
+    public DashboardInfo getDashboardInfo() {
+        return service.getDashboardInfo();
     }
 
 }
