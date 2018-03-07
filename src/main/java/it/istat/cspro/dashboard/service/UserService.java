@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import it.istat.cspro.dashboard.dao.UserDao;
 import it.istat.cspro.dashboard.domain.User;
 import it.istat.cspro.dashboard.forms.UserCreateForm;
+import it.istat.cspro.dashboard.forms.UserUpdateForm;
 
 @Service
 @Transactional
@@ -42,7 +43,7 @@ public class UserService {
         return user;
     }
 
-    public User update(UserCreateForm uf) throws Exception {
+    public User update(UserUpdateForm uf) throws Exception {
         User user = userDao.findOne(uf.getId());
         if (user == null) {
             throw new Exception("User not found");

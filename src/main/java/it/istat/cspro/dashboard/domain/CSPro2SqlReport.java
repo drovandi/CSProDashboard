@@ -14,11 +14,14 @@ import javax.persistence.Table;
 @Table(name = "CSPRO2SQL_REPORT")
 public class CSPro2SqlReport implements Serializable {
 
-    private static final long serialVersionUID = 2855428583098249553L;
+    private static final long serialVersionUID = -2418767889520755476L;
 
     @Id
     @Column(name = "NAME")
     private String name;
+
+    @Column(name = "LIST_ORDER")
+    private int listOrder;
 
     public String getName() {
         return name;
@@ -26,6 +29,14 @@ public class CSPro2SqlReport implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getListOrder() {
+        return listOrder;
+    }
+
+    public void setListOrder(int listOrder) {
+        this.listOrder = listOrder;
     }
 
 }

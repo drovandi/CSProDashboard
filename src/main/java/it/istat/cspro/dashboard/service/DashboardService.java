@@ -10,6 +10,7 @@ import it.istat.cspro.dashboard.dao.DashboardInfoDao;
 import it.istat.cspro.dashboard.domain.CSPro2SqlError;
 import it.istat.cspro.dashboard.domain.CSPro2SqlReport;
 import it.istat.cspro.dashboard.domain.DashboardInfo;
+import org.springframework.data.domain.Sort;
 
 /**
  *
@@ -27,7 +28,7 @@ public class DashboardService {
     private DashboardInfoDao dashboardInfoDao;
 
     public List<CSPro2SqlReport> getReports() {
-        return cSPro2SqlReportDao.findAll();
+        return cSPro2SqlReportDao.findAll(new Sort(new Sort.Order("listOrder")));
     }
 
     public List<CSPro2SqlError> getErrors() {

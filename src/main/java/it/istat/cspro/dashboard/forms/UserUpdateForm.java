@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
-public class UserCreateForm {
+public class UserUpdateForm {
 
     @NotNull
     private Long id;
@@ -14,10 +14,6 @@ public class UserCreateForm {
     @Email
     @Size(min = 2, max = 100)
     private String email;
-
-    @NotNull
-    @Size(min = 2, max = 50)
-    private String password;
 
     @NotNull
     @Size(min = 2, max = 30)
@@ -31,13 +27,12 @@ public class UserCreateForm {
     @Size(min = 2, max = 30)
     private String role;
 
-    public UserCreateForm() {
+    public UserUpdateForm() {
     }
 
-    public UserCreateForm(User user) {
+    public UserUpdateForm(User user) {
         this.id = user.getId();
         this.email = user.getEmail();
-        this.password = user.getPassword();
         this.firstname = user.getFirstname();
         this.lastname = user.getLastname();
         this.role = user.getRole();
@@ -57,14 +52,6 @@ public class UserCreateForm {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFirstname() {

@@ -20,6 +20,8 @@ function toggleMenu(load) {
         doToggling($(window).width());
     else if ($("aside").hasClass("toggle-off"))
         doToggling(smallWindow + 1);
+    else
+        doToggling(smallWindow);
 }
 
 function format(n) {
@@ -36,19 +38,18 @@ function formatPercentage(a, b) {
 
 //write REST response user
 function writeMsgs(data, iddiv_msgs) {
-
     $.each(data, function (index, msg) {
         var classs = 'alert alert-info';
-        if (msg.type == 'INFO')
+        if (msg.type === 'INFO')
             classs = 'alert alert-success';
-        else if (msg.type == 'ERROR')
+        else if (msg.type === 'ERROR')
             classs = 'alert alert-danger';
         var div = $('<div class="' + classs + '"><strong>' + msg.type
                 + '</strong>: ' + msg.text + ' </div>"');
         $("#" + iddiv_msgs).append(div);
-
     });
 }
+
 //write REST response user
 function writeMsgsError(msg, iddiv_msgs) {
 
@@ -68,9 +69,7 @@ function doToggling(w) {
         $(".sidebar .nav span").addClass("hide-text");
         $(".sidebar .nav i").addClass("push-icon-right");
         $(".sidebar-subnav>li>a").addClass("less-padding-icon-menu");
-
     } else {
-
         $("aside").removeClass("toggle-off");
         $("section").removeClass("toggle-off");
         $("footer").removeClass("toggle-off");
@@ -79,7 +78,6 @@ function doToggling(w) {
         $(".sidebar .nav span").removeClass("hide-text");
         $(".sidebar .nav i").removeClass("push-icon-right");
         $(".sidebar-subnav>li>a").removeClass("less-padding-icon-menu");
-
     }
 }
 

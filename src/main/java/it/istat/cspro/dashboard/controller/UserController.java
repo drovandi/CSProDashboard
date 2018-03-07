@@ -11,11 +11,13 @@ import it.istat.cspro.dashboard.bean.Role;
 import it.istat.cspro.dashboard.domain.User;
 import it.istat.cspro.dashboard.forms.LoginForm;
 import it.istat.cspro.dashboard.forms.UserCreateForm;
+import it.istat.cspro.dashboard.forms.UserUpdateForm;
 import it.istat.cspro.dashboard.service.NotificationService;
 import it.istat.cspro.dashboard.service.UserService;
 import java.security.Principal;
 import java.util.List;
 import javax.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @Controller
 public class UserController extends BaseController {
@@ -36,6 +38,7 @@ public class UserController extends BaseController {
         return "redirect:/";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/newuser", method = RequestMethod.GET)
     public String getUserCreatePage(Model model, @ModelAttribute("userCreateForm") UserCreateForm form) {
         notificationService.removeAllMessages();
@@ -44,22 +47,24 @@ public class UserController extends BaseController {
         return "users/newuser";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/edituser", method = RequestMethod.GET)
     public String getEditUser(Model model, Principal principal) {
         notificationService.removeAllMessages();
-        
+
         User user = userService.findByEmail(principal.getName());
         UserCreateForm userf = new UserCreateForm(user);
         Role[] allRoles = Role.values();
-        
+
         model.addAttribute("userCreateForm", userf);
         model.addAttribute("allRoles", allRoles);
-        
+
         return "users/edituser";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/edituser", method = RequestMethod.POST)
-    public String editUser(Model model, @Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+    public String editUser(Model model, @Valid @ModelAttribute("userCreateForm") UserUpdateForm form,
             BindingResult bindingResult) {
 
         notificationService.removeAllMessages();
@@ -81,6 +86,7 @@ public class UserController extends BaseController {
         return "users/edituser";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/newuser", method = RequestMethod.POST)
     public String handleUserCreateForm(Model model, @Valid @ModelAttribute("userCreateForm") UserCreateForm form,
             BindingResult bindingResult) {
@@ -103,6 +109,7 @@ public class UserController extends BaseController {
         return "users/newuser";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/userlist")
     public String userslist(Model model) {
         List<User> users = userService.findAll();

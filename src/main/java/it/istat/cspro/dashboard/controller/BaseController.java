@@ -4,8 +4,9 @@ import it.istat.cspro.dashboard.domain.CSPro2SqlReport;
 import it.istat.cspro.dashboard.domain.DashboardInfo;
 import it.istat.cspro.dashboard.service.DashboardService;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class BaseController {
     }
 
     @ModelAttribute("householdReports")
-    public Set<String> getHouseholdReports() {
-        Set<String> reports = new TreeSet<>();
+    public List<String> getHouseholdReports() {
+        List<String> reports = new LinkedList<>();
         for (CSPro2SqlReport r : service.getReports()) {
             Matcher m = HOUSEHOLD_BY_PATTERN.matcher(r.getName());
             if (m.find()) {
@@ -42,7 +43,7 @@ public class BaseController {
         }
         return reports;
     }
-    
+
     @ModelAttribute("dashboardInfo")
     public DashboardInfo getDashboardInfo() {
         return service.getDashboardInfo();

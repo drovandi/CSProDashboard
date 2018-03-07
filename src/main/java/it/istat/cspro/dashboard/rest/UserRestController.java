@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import it.istat.cspro.dashboard.domain.User;
 import it.istat.cspro.dashboard.forms.UserCreateForm;
+import it.istat.cspro.dashboard.forms.UserUpdateForm;
 import it.istat.cspro.dashboard.service.NotificationService;
 import it.istat.cspro.dashboard.service.UserService;
 import it.istat.cspro.dashboard.service.NotificationService.NotificationMessage;
 
 @RestController
+@PreAuthorize("hasRole('ADMIN')")
 public class UserRestController {
 
     @Autowired
@@ -59,7 +61,7 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/users/restUpdateUser", method = RequestMethod.POST)
-    public List<NotificationMessage> updateUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
+    public List<NotificationMessage> updateUser(@Valid @ModelAttribute("userCreateForm") UserUpdateForm form,
             BindingResult bindingResult) {
         notificationService.removeAllMessages();
         if (!bindingResult.hasErrors()) {
@@ -110,7 +112,6 @@ public class UserRestController {
         return notificationService.getNotificationMessages();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/updatePassword", method = RequestMethod.POST)
     public List<NotificationMessage> updatePassword(@RequestParam("passw") String password, @RequestParam("id") String id) {
         notificationService.removeAllMessages();
