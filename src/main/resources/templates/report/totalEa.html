@@ -11,39 +11,42 @@
                     $('#eaFieldwork').text(format(report.eaFieldwork));
                     $('#eaFreshlist').text(format(report.eaFreshlist));
                     $('#eaExpected').text(format(report.eaExpected));
-                    if ($('.fieldworkFreshlist').length>0) $('.fieldworkFreshlist').ClassyLoader({
-                        percentage: 100. * report.eaFieldwork / report.eaFreshlist,
-                        speed: 20,
-                        diameter: 70,
-                        fontSize: '40px',
-                        roundedLine: true,
-                        fontColor: '#34788c',
-                        lineColor: '#34788c',
-                        remainingLineColor: 'rgba(200,200,200,0.4)',
-                        lineWidth: 10
-                    });
-                    if ($('.fieldworkExpected').length>0) $('.fieldworkExpected').ClassyLoader({
-                        percentage: 100. * report.eaFieldwork / report.eaExpected,
-                        speed: 20,
-                        diameter: 70,
-                        fontSize: '40px',
-                        roundedLine: true,
-                        fontColor: '#34788c',
-                        lineColor: '#34788c',
-                        remainingLineColor: 'rgba(200,200,200,0.4)',
-                        lineWidth: 10
-                    });
-                    if ($('.freshlistExpected').length>0) $('.freshlistExpected').ClassyLoader({
-                        percentage: 100. * report.eaFreshlist / report.eaExpected,
-                        speed: 20,
-                        diameter: 70,
-                        fontSize: '40px',
-                        roundedLine: true,
-                        fontColor: '#34788c',
-                        lineColor: '#34788c',
-                        remainingLineColor: 'rgba(200,200,200,0.4)',
-                        lineWidth: 10
-                    });
+                    if ($('.fieldworkFreshlist').length > 0)
+                        $('.fieldworkFreshlist').ClassyLoader({
+                            percentage: 100. * report.eaFieldwork / report.eaFreshlist,
+                            speed: 20,
+                            diameter: 70,
+                            fontSize: '40px',
+                            roundedLine: true,
+                            fontColor: '#34788c',
+                            lineColor: '#34788c',
+                            remainingLineColor: 'rgba(200,200,200,0.4)',
+                            lineWidth: 10
+                        });
+                    if ($('.fieldworkExpected').length > 0)
+                        $('.fieldworkExpected').ClassyLoader({
+                            percentage: 100. * report.eaFieldwork / report.eaExpected,
+                            speed: 20,
+                            diameter: 70,
+                            fontSize: '40px',
+                            roundedLine: true,
+                            fontColor: '#34788c',
+                            lineColor: '#34788c',
+                            remainingLineColor: 'rgba(200,200,200,0.4)',
+                            lineWidth: 10
+                        });
+                    if ($('.freshlistExpected').length > 0)
+                        $('.freshlistExpected').ClassyLoader({
+                            percentage: 100. * report.eaFreshlist / report.eaExpected,
+                            speed: 20,
+                            diameter: 70,
+                            fontSize: '40px',
+                            roundedLine: true,
+                            fontColor: '#34788c',
+                            lineColor: '#34788c',
+                            remainingLineColor: 'rgba(200,200,200,0.4)',
+                            lineWidth: 10
+                        });
                 });
             });
         </script>
@@ -63,6 +66,13 @@
                     </div>
                     <div class="container-fluid">
 
+                        <div class="bs-callout">
+                            <h4>Description</h4>
+                            <p>
+                                An Enumeration Area is considered to be returned when at least one questionnaire arrived at CSA
+                            </p>
+                        </div>
+
                         <div class="row">
 
                             <!-- START WIDGET -->
@@ -79,7 +89,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.listing}">
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
@@ -109,7 +119,7 @@
                             </div>
 
                         </div>
-                        
+
                         <div class="row">
 
                             <!-- START WIDGET -->
@@ -122,7 +132,7 @@
                                 </div>
                             </div>
                             <!-- END WIDGET -->
-                            
+
                             <!-- START WIDGET -->
                             <div class="col-lg-3" th:if="${dashboardInfo.expected}">
                                 <div class="panel panel-default">

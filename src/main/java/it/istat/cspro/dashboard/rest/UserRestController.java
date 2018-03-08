@@ -22,7 +22,6 @@ import it.istat.cspro.dashboard.service.UserService;
 import it.istat.cspro.dashboard.service.NotificationService.NotificationMessage;
 
 @RestController
-@PreAuthorize("hasRole('ADMIN')")
 public class UserRestController {
 
     @Autowired
