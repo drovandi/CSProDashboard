@@ -16,14 +16,14 @@ $(document).ready(function () {
     template.remove();
     for (var i in regions) {
         (function (i, region) {
-            $.getJSON(_ctx + "/rest/report/list/sexByAgeGroupRegion?region=" + i, function (json) {
+            $.getJSON(_ctx + "/rest/report/sexByAgeGroupRegion?region=" + i, function (json) {
                 var arrLabel = [];
                 var arrDataMale = [];
                 var arrDataFemale = [];
                 $.each(json, function (i, obj) {
-                    arrLabel.push(obj.range);
-                    arrDataMale.push(obj.male);
-                    arrDataFemale.push(obj.female);
+                    arrLabel.push(obj[2]);
+                    arrDataMale.push(obj[3]);
+                    arrDataFemale.push(obj[4]);
                 });
                 $('.sexdistribution-fluid')
                         .animate({queue: false, duration: 500})

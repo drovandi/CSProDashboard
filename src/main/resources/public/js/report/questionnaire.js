@@ -4,9 +4,9 @@ var _ctx = $("meta[name='ctx']").attr("content");
 
 $(document).ready(function () {
     setMenuActive("report-questionnaire");
-    $.getJSON(_ctx + "/rest/report/questionnaire", function (report) {
-        $('#questionnaireCount1').text(format(report.total));
-        $('#questionnaireCount2').text(format(report.avg_individual));
+    $.getJSON(_ctx + "/rest/report/questionnaireInfo", function (report) {
+        $('#questionnaireCount1').text(format(report[0][1]));
+        $('#questionnaireCount2').text(format(report[0][2]));
     });
     var template = $('#template');
     var last = template;
@@ -20,9 +20,9 @@ $(document).ready(function () {
     }
     for (var i in regions) {
         (function (i, region) {
-            $.getJSON(_ctx + "/rest/report/questionnaireRegion?region=" + i, function (report) {
-                $('#questionnaireCount1-' + i).text(format(report.total));
-                $('#questionnaireCount2-' + i).text(format(report.avg_individual));
+            $.getJSON(_ctx + "/rest/report/questionnaireInfoRegion?region=" + i, function (report) {
+                $('#questionnaireCount1-' + i).text(format(report[0][2]));
+                $('#questionnaireCount2-' + i).text(format(report[0][3]));
             });
         })(i, regions[i]);
     }

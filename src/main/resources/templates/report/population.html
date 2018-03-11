@@ -5,16 +5,16 @@
         <script>
             $(function () {
                 setMenuActive("report-population");
-                $.getJSON(ctx + "/rest/report/population", function (populationReport) {
-                    $('#questionnaireCount1').text(format(populationReport.total));
-                    $('#questionnaireCount2').text(format(populationReport.age_avg));
-                    $('#questionnaireCount3').text(format(populationReport.age_max));
-                    $('#questionnaireCount4').text(format(populationReport.total_male));
-                    $('#questionnaireCount5').text(format(populationReport.age_avg_male));
-                    $('#questionnaireCount6').text(format(populationReport.age_max_male));
-                    $('#questionnaireCount7').text(format(populationReport.total_female));
-                    $('#questionnaireCount8').text(format(populationReport.age_avg_female));
-                    $('#questionnaireCount9').text(format(populationReport.age_max_female));
+                $.getJSON(ctx + "/rest/report/individualInfo", function (populationReport) {
+                    $('#questionnaireCount1').text(format(populationReport[0][1]));
+                    $('#questionnaireCount2').text(format(populationReport[0][2]));
+                    $('#questionnaireCount3').text(format(populationReport[0][3]));
+                    $('#questionnaireCount4').text(format(populationReport[0][4]));
+                    $('#questionnaireCount5').text(format(populationReport[0][5]));
+                    $('#questionnaireCount6').text(format(populationReport[0][6]));
+                    $('#questionnaireCount7').text(format(populationReport[0][7]));
+                    $('#questionnaireCount8').text(format(populationReport[0][8]));
+                    $('#questionnaireCount9').text(format(populationReport[0][9]));
                 });
             });
         </script>

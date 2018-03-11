@@ -7,13 +7,13 @@
         <script type="text/javascript">
             $(function () {
                 setMenuActive("report-total-ea");
-                $.getJSON(ctx + "/rest/report/totals", function (report) {
-                    $('#eaFieldwork').text(format(report.eaFieldwork));
-                    $('#eaFreshlist').text(format(report.eaFreshlist));
-                    $('#eaExpected').text(format(report.eaExpected));
+                $.getJSON(ctx + "/rest/report/total", function (report) {
+                    $('#eaFieldwork').text(format(report[0][1]));
+                    $('#eaFreshlist').text(format(report[0][2]));
+                    $('#eaExpected').text(format(report[0][3]));
                     if ($('.fieldworkFreshlist').length > 0)
                         $('.fieldworkFreshlist').ClassyLoader({
-                            percentage: 100. * report.eaFieldwork / report.eaFreshlist,
+                            percentage: 100. * report[0][1] / report[0][2],
                             speed: 20,
                             diameter: 70,
                             fontSize: '40px',
@@ -25,7 +25,7 @@
                         });
                     if ($('.fieldworkExpected').length > 0)
                         $('.fieldworkExpected').ClassyLoader({
-                            percentage: 100. * report.eaFieldwork / report.eaExpected,
+                            percentage: 100. * report[0][1] / report[0][3],
                             speed: 20,
                             diameter: 70,
                             fontSize: '40px',
@@ -37,7 +37,7 @@
                         });
                     if ($('.freshlistExpected').length > 0)
                         $('.freshlistExpected').ClassyLoader({
-                            percentage: 100. * report.eaFreshlist / report.eaExpected,
+                            percentage: 100. * report[0][2] / report[0][3],
                             speed: 20,
                             diameter: 70,
                             fontSize: '40px',
