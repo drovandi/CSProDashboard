@@ -6,17 +6,17 @@ var arrLabelData = [];
 
 $(document).ready(function () {
     setMenuActive("report-religion");
-    $.getJSON(_ctx + "/rest/report/list/religion", function (json) {
+    $.getJSON(_ctx + "/rest/report/religion", function (json) {
         var startFrom = 55;
         var individualsTotal = 0;
         $.each(json, function (i, obj) {
-            arrLabel.push(obj.religion);
-            arrData.push(obj.individuals);
-            individualsTotal = individualsTotal + parseInt(obj.individuals);
+            arrLabel.push(obj[1]);
+            arrData.push(obj[2]);
+            individualsTotal = individualsTotal + parseInt(obj[2]);
             arrColor.push(color[i + startFrom ][2]);
             arrLabelData.push([]);
-            arrLabelData[i][0] = obj.religion;
-            arrLabelData[i][1] = parseInt(obj.individuals);
+            arrLabelData[i][0] = obj[1];
+            arrLabelData[i][1] = parseInt(obj[2]);
             arrLabelData[i][2] = 0;
         });
         for (var i in arrLabelData) {

@@ -389,3 +389,12 @@ fieldset {
 .less-padding-icon-menu{
     padding-left:15px!important;
 }
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #2189b4;
+    border-left-width: 5px;
+    border-radius: 3px;
+    background-color: white;
+}
+

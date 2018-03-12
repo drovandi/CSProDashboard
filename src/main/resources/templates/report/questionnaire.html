@@ -3,18 +3,9 @@
 
     <head th:replace="layout :: site-head"/>
     <head>
-        <script th:src="@{/js/chart/jquery.classyloader.min.js}" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(function () {
-                setMenuActive("report-questionnaire");
-                $.getJSON(ctx + "/rest/report/questionnaire", function (report) {
-                    $('#questionnaireCount1').text(report.total);
-                    $('#questionnaireCount2').text(format(report.avg_individual_male));
-                    $('#questionnaireCount3').text(format(report.avg_individual));
-                    $('#questionnaireCount4').text(format(report.avg_individual_female));
-                });
-            });
-        </script>
+        <script th:src="@{/js/chart/jquery.classyloader.min.js}"></script>
+        <script th:src="@{/js/report/regions.js}"></script>
+        <script th:src="@{/js/report/questionnaire.js}"></script>
     </head>
 
     <body>
@@ -31,62 +22,47 @@
                     </div>
                     <div class="container-fluid">
 
-                        <div class="row">
+                        <div id="template">
 
-                            <!-- START WIDGET -->
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="panel widget bg-purple">
-                                    <div class="row row-table">
-                                        <div class="col-xs-4 text-center bg-purple-dark ">
-                                            <em class="fa fa-file-text-o fa-3x"></em>
-                                        </div>
-                                        <div class="col-xs-8 widget-content">
-                                            <div class="h2 mt0" id="questionnaireCount1"></div>
-                                            <div class="text-uppercase">Number of Households</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel widget bg-male">
-                                    <div class="row row-table">
-                                        <div class="col-xs-4 text-center bg-male-dark ">
-                                            <em class="fa fa-male fa-3x"></em>
-                                        </div>
-                                        <div class="col-xs-8 widget-content">
-                                            <div class="h2 mt0" id="questionnaireCount2"></div>
-                                            <div class="text-uppercase">Avg Male</div>
+                            <div class="bs-callout">
+                                <h4 class="regionName">Country</h4>
+
+                                <div class="row">
+
+                                    <!-- START WIDGET -->
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="panel widget bg-purple">
+                                            <div class="row row-table">
+                                                <div class="col-xs-4 text-center bg-purple-dark ">
+                                                    <em class="fa fa-file-text-o fa-3x"></em>
+                                                </div>
+                                                <div class="col-xs-8 widget-content">
+                                                    <div class="h2 mt0" id="questionnaireCount1"></div>
+                                                    <div class="text-uppercase">Number of Households</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!-- END WIDGET -->
+
+                                    <!-- START WIDGET -->
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="panel widget bg-blue">
+                                            <div class="row row-table">
+                                                <div class="col-xs-4 text-center bg-blue-dark pv-lg">
+                                                    <em class="fa fa-child fa-3x"></em>
+                                                </div>
+                                                <div class="col-xs-8 widget-content">
+                                                    <div class="h2 mt0" id="questionnaireCount2"></div>
+                                                    <div class="text-uppercase">Avg Household Size</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END WIDGET -->
                                 </div>
+
                             </div>
-                            <!-- END WIDGET -->
-
-                            <!-- START WIDGET -->
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="panel widget bg-blue">
-                                    <div class="row row-table">
-                                        <div class="col-xs-4 text-center bg-blue-dark pv-lg">
-                                            <em class="fa fa-child fa-3x"></em>
-                                        </div>
-                                        <div class="col-xs-8 widget-content">
-                                            <div class="h2 mt0" id="questionnaireCount3"></div>
-                                            <div class="text-uppercase">Avg Household Size</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel widget bg-female">
-                                    <div class="row row-table">
-                                        <div class="col-xs-4 text-center bg-female-dark pv-lg">
-                                            <em class="fa fa-female fa-3x"></em>
-                                        </div>
-                                        <div class="col-xs-8 widget-content">
-                                            <div class="h2 mt0" id="questionnaireCount4"></div>
-                                            <div class="text-uppercase">Avg Female</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END WIDGET -->
-
                         </div>
                     </div>
                 </div>
