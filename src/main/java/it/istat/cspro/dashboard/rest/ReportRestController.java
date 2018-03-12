@@ -4,7 +4,6 @@ import it.istat.cspro.dashboard.service.GenericReportService;
 import it.istat.cspro.dashboard.service.ProcessReportService;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,12 +26,7 @@ public class ReportRestController {
 
     @RequestMapping(value = "/rest/report/{key}")
     public Object objectReport(@PathVariable("key") String key,
-            @RequestParam(name = "region", required = false) Integer region,
-            @RequestParam(name = "type", required = false) Integer type) {
-        switch (key) {
-            case "populationResidence":
-                return genericReportService.getPopulationResidenceReport(type);
-        }
+            @RequestParam(name = "region", required = false) Integer region) {
         try {
             Matcher m = HOUSEHOLD_BY_PATTERN.matcher(key);
             if (m.find()) {
@@ -40,11 +34,9 @@ public class ReportRestController {
             } else if (region != null) {
                 return genericReportService.getGenericReport(getReportName(key), "REGION", region);
             } else {
-                System.out.println(getReportName(key));
                 return genericReportService.getGenericReport(getReportName(key));
             }
         } catch (Exception e) {
-            e.printStackTrace();
             return new ArrayList(0);
         }
     }
@@ -67,4 +59,3 @@ public class ReportRestController {
     }
 
 }
-

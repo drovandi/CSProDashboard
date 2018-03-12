@@ -2,12 +2,12 @@
 /* global ctx */
 
 $(function () {
-    setMenuActive("report-populationResidence");
-    populate(ctx + "/rest/report/populationResidence?type=0", 'populationlist');
-    populate(ctx + "/rest/report/populationResidence?type=1", 'populationlistMale');
-    populate(ctx + "/rest/report/populationResidence?type=2", 'populationlistFemale');
+    setMenuActive('report-populationResidence');
+    populate(ctx + '/rest/report/populationTypeOfResidence', 'populationlist');
+    populate(ctx + '/rest/report/populationTypeOfResidenceMale', 'populationlistMale');
+    populate(ctx + '/rest/report/populationTypeOfResidenceFemale', 'populationlistFemale');
 });
-var columnDefs = [{"targets": [0], "visible": false, "searchable": false}];
+var columnDefs = [{'targets': [0], 'visible': false, 'searchable': false}];
 function populate(url, target) {
     $.getJSON(url, function (dataSet) {
         var table = $('#' + target).DataTable({

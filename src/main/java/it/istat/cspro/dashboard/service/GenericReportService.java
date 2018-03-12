@@ -19,16 +19,4 @@ public class GenericReportService {
         return genericReportDao.findAll(report, params);
     }
 
-    public List<List> getPopulationResidenceReport(int type) {
-        switch (type) {
-            case 0:
-                return genericReportDao.findAll("MR_POPULATION_TYPE_OF_RESIDENCE");
-            case 1:
-                return genericReportDao.findAll("MR_POPULATION_TYPE_OF_RESIDENCE_MALE");
-            case 2:
-                return genericReportDao.findAll("MR_POPULATION_TYPE_OF_RESIDENCE_FEMALE");
-        }
-        return null;
-    }
-
 }
