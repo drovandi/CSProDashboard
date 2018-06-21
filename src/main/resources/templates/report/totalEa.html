@@ -104,7 +104,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.listing &amp;&amp; dashboardInfo.expected}">
+                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.expected}">
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
@@ -145,7 +145,7 @@
                             <!-- END WIDGET -->
 
                             <!-- START WIDGET -->
-                            <div class="col-lg-3" th:if="${dashboardInfo.expected}">
+                            <div class="col-lg-3" th:if="${dashboardInfo.listing &amp;&amp; dashboardInfo.expected}">
                                 <div class="panel panel-default">
                                     <div class="panel-body text-center">
                                         <div class="text-info">Freshlist / Expected</div>
