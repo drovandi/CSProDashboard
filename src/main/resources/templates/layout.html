@@ -137,7 +137,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')">
+                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')" th:if="${dashboardInfo.gis}">
                                     <a href="#gis" title="GIS maps" data-toggle="collapse" class="collapsed" aria-expanded="false">
                                         <i class="fa fa-cogs"></i>
                                         <span>GIS maps</span>
