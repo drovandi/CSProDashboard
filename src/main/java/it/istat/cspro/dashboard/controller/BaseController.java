@@ -2,6 +2,7 @@ package it.istat.cspro.dashboard.controller;
 
 import it.istat.cspro.dashboard.domain.CSPro2SqlReport;
 import it.istat.cspro.dashboard.domain.DashboardInfo;
+import it.istat.cspro.dashboard.domain.FirstLevelGeography;
 import it.istat.cspro.dashboard.service.DashboardService;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -49,4 +50,8 @@ public class BaseController {
         return service.getDashboardInfo();
     }
 
+    @ModelAttribute("firstLevelGeography")
+    public List<FirstLevelGeography> getFirstLevelGeography() {
+        return service.getFirstLevelGeography();
+    }
 }

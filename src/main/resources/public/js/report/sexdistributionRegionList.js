@@ -1,4 +1,4 @@
-/* global regions */
+/* global firstLevelGeography */
 
 var _ctx = $("meta[name='ctx']").attr("content");
 
@@ -6,17 +6,17 @@ $(document).ready(function () {
     setMenuActive("report-sexdistributionRegion");
     var template = $('#template');
     var last = template;
-    for (var i in regions) {
+    for (var i in firstLevelGeography) {
         var c = template.clone();
         c.find('#bar-chart-area').attr('id', 'bar-chart-area-' + i);
-        c.find('.regionName').text(regions[i]);
+        c.find('.regionName').text(firstLevelGeography[i].name);
         last.after(c);
         last = c;
     }
     template.remove();
-    for (var i in regions) {
+    for (var i in firstLevelGeography) {
         (function (i, region) {
-            $.getJSON(_ctx + "/rest/report/sexByAgeGroupRegion?region=" + i, function (json) {
+            $.getJSON(_ctx + "/rest/report/sexByAgeGroupRegion?region=" + region.code, function (json) {
                 var arrLabel = [];
                 var arrDataMale = [];
                 var arrDataFemale = [];
@@ -61,7 +61,7 @@ $(document).ready(function () {
                 var myChartBar = document.getElementById("bar-chart-area-" + i).getContext("2d");
                 var myBar = new Chart(myChartBar, configBar);
             });
-        })(i, regions[i]);
+        })(i, firstLevelGeography[i]);
     }
 });
 
