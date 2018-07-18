@@ -86,7 +86,7 @@
                                             </a>
                                         </li>
                                         <li th:id="${'report-ea-' + rep}" th:each="rep,iterationStatus : ${eaReports}">
-                                            <a th:title="${'EAs completed by ' + rep.toUpperCase()}" th:href="@{/report/ea/} + ${rep}" th:text="${'EAs completed by ' + rep.toUpperCase()}"></a>
+                                            <a th:title="${'EAs by ' + rep.toUpperCase()}" th:href="@{/report/ea/} + ${rep}" th:text="${'EAs by ' + rep.toUpperCase()}"></a>
                                         </li>
                                         <li id="report-total-household" th:if="${reports.contains('r_total')}">
                                             <a title="Households by COUNTRY" th:href="@{/report/totalHousehold}">
