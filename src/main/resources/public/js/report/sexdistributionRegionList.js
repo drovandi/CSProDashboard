@@ -28,8 +28,18 @@ $(document).ready(function () {
                 $('.sexdistribution-fluid')
                         .animate({queue: false, duration: 500})
                         .fadeIn('clip', '', 500, callBackShow);
+
+                // Reverse the order of the data so that younger ages are on bottom of pyramid
+                arrLabel.reverse();
+                arrDataMale.reverse();
+                arrDataFemale.reverse();
+
+                // In order to make left side of pyramid, negate the male counts to make the bars
+                // go to the left
+                arrDataMale = arrDataMale.map(x => - x);
+
                 var configBar = {
-                    type: 'bar',
+                    type: 'horizontalBar',
                     data: {
                         labels: arrLabel,
                         datasets: [
@@ -51,6 +61,24 @@ $(document).ready(function () {
                         title: {
                             display: false,
                             text: 'SEX/DISTRIBUTION'
+                        },
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    // Don't show negative values used to make left side of pyramid
+                                    callback: function(value, index, values) {
+                                        return Math.abs(value);
+                                    }
+                                }
+                            }],
+                            yAxes: [{
+                                stacked: true, // Allow male and female bars to be aligned
+                            }]
+                        },
+                        tooltips: {
+                            callbacks: {
+                                label: (item, data) => data.datasets[item.datasetIndex].label + ': ' + Math.abs(data.datasets[item.datasetIndex].data[item.index])
+                            }
                         },
                         animation: {
                             animateScale: true,
