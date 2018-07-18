@@ -8,11 +8,11 @@
             $(function () {
                 setMenuActive("report-total-household");
                 $.getJSON(ctx + "/rest/report/total", function (report) {
-                    $('#householdFieldwork').text(format(report[0][4]));
-                    $('#householdFreshlist').text(format(report[0][5]));
-                    $('#householdExpected').text(format(report[0][6]));
+                    $('#householdFieldwork').text(format(report[0][5]));
+                    $('#householdFreshlist').text(format(report[0][6]));
+                    $('#householdExpected').text(format(report[0][7]));
                     if ($('.fieldworkFreshlist').length>0) $('.fieldworkFreshlist').ClassyLoader({
-                        percentage: 100. * report[0][4] / report[0][5],
+                        percentage: 100. * report[0][5] / report[0][6],
                         speed: 20,
                         diameter: 70,
                         fontSize: '40px',
@@ -23,7 +23,7 @@
                         lineWidth: 10
                     });
                     if ($('.fieldworkExpected').length>0) $('.fieldworkExpected').ClassyLoader({
-                        percentage: 100. * report[0][4] / report[0][6],
+                        percentage: 100. * report[0][5] / report[0][7],
                         speed: 20,
                         diameter: 70,
                         fontSize: '40px',
@@ -34,7 +34,7 @@
                         lineWidth: 10
                     });
                     if ($('.freshlistExpected').length>0) $('.freshlistExpected').ClassyLoader({
-                        percentage: 100. * report[0][5] / report[0][6],
+                        percentage: 100. * report[0][6] / report[0][7],
                         speed: 20,
                         diameter: 70,
                         fontSize: '40px',

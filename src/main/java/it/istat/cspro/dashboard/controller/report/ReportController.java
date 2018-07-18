@@ -18,6 +18,11 @@ public class ReportController extends BaseController {
         return "report/household";
     }
 
+    @RequestMapping(value = "/report/ea/{reportType}")
+    public String reportEaPage(@PathVariable("reportType") String reportType) {
+        return "report/ea";
+    }
+
     @RequestMapping(value = "/gis/{gisPage}")
     public String gisPage(@PathVariable("gisPage") String gisPage) {
         return "gis/" + gisPage;

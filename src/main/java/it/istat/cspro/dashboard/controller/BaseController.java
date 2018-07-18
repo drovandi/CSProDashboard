@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class BaseController {
 
     private static final Pattern HOUSEHOLD_BY_PATTERN = Pattern.compile("^r_household_expected_by_(.*)$");
+    private static final Pattern EA_BY_PATTERN = Pattern.compile("^r_ea_expected_by_(.*)$");
 
     @Autowired
     private DashboardService service;
@@ -45,6 +46,18 @@ public class BaseController {
         return reports;
     }
 
+    @ModelAttribute("eaReports")
+    public List<String> getEaReports() {
+        List<String> reports = new LinkedList<>();
+        for (CSPro2SqlReport r : service.getReports()) {
+            Matcher m = EA_BY_PATTERN.matcher(r.getName());
+            if (m.find()) {
+                reports.add(m.group(1));
+            }
+        }
+        return reports;
+    }
+    
     @ModelAttribute("dashboardInfo")
     public DashboardInfo getDashboardInfo() {
         return service.getDashboardInfo();
