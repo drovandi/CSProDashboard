@@ -112,14 +112,19 @@
                                                 <span>Population</span>
                                             </a>
                                         </li>
-                                        <li id="report-sexdistribution" th:if="${reports.contains('r_sex_by_age_group')}">
-                                            <a title="Sex Distribution" th:href="@{/report/sexdistribution}">
+                                        <li id="report-sexdistribution-sexByAge" th:if="${reports.contains('r_sex_by_age_group')}">
+                                            <a title="Sex Distribution" th:href="@{/report/sexdistribution/sexByAgeGroup}">
                                                 <span>Sex Distribution by Country</span>
                                             </a>
                                         </li>
                                         <li id="report-sexdistributionRegion" th:if="${reports.contains('r_sex_by_age_group_region')}">
                                             <a title="Sex Distribution by Region" th:href="@{/report/sexdistributionRegion}">
                                                 <span>Sex Distribution by Region</span>
+                                            </a>
+                                        </li>
+                                        <li id="report-sexdistribution-sexByBroadAge" th:if="${reports.contains('r_sex_by_broad_age_group')}">
+                                            <a title="Sex by Broad Age Groups" th:href="@{/report/sexdistribution/sexByBroadAgeGroup}">
+                                                <span>Sex by Broad Age Groups</span>
                                             </a>
                                         </li>
                                         <li id="report-questionnaire" th:if="${reports.contains('r_questionnaire_info')}">

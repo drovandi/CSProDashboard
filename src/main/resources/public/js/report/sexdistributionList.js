@@ -5,8 +5,11 @@ var arrDataFemale = [];
 var arrColor = [];
 
 $(document).ready(function () {
-    setMenuActive("report-sexdistribution");
-    var jqxhr = $.getJSON(_ctx + "/rest/report/sexByAgeGroup", function (json) {
+    setMenuActive("report-sexdistribution-" + reportType);
+    if (reportType == "sexByBroadAgeGroup") {
+        $('.content-heading').text("Sex by Broad Age Groups");
+    }
+    var jqxhr = $.getJSON(_ctx + "/rest/report/" + reportType, function (json) {
         $.each(json, function (i, obj) {
             arrLabel.push(obj[1]);
             arrDataMale.push(obj[2]);
