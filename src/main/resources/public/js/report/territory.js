@@ -40,6 +40,27 @@ function populate(url, tableId) {
     });
 }
 
+function updateFilterLists(table, filteredColumns) {
+    table.columns(filteredColumns).every(function () {
+        var column =  table.column( this, {search: 'applied'} );
+        var select = $('<select><option value=""></option></select>')
+                .appendTo($(column.footer()).empty())
+                .on('change', function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                });
+        column.data().unique().sort().each(function (d, j) {
+            select.append('<option value="' + d + '">' + d + '</option>');
+        });
+
+        // The rebuild will clear the exisiting select, so it needs to be repopulated
+        var currSearch = column.search();
+        if ( currSearch ) {
+          select.val( currSearch.substring(1, currSearch.length-1) );
+        }
+    });
+}
+
 function __populate(dataSet, columnsSet, tableId) {
     var tFoot = $(document.createElement('tfoot'));
     var footTr = $(document.createElement('tr'));
@@ -60,18 +81,10 @@ function __populate(dataSet, columnsSet, tableId) {
         order: [[0, "asc"]],
         buttons: ['csv', 'excel', 'pdf'],
         initComplete: function () {
-            this.api().columns(filters).every(function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                        .appendTo($(column.footer()).empty())
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                            column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                column.data().unique().sort().each(function (d, j) {
-                    select.append('<option value="' + d + '">' + d + '</option>');
-                });
-            });
+            updateFilterLists(this.api(), filters);
+        },
+        drawCallback: function () {
+            updateFilterLists(this.api(), filters);
         }
     });
     table.buttons().container().appendTo('#' + tableId + '_wrapper .col-sm-6:eq(0)');
