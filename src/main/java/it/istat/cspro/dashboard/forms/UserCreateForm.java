@@ -1,13 +1,13 @@
 package it.istat.cspro.dashboard.forms;
 
 import it.istat.cspro.dashboard.domain.User;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 public class UserCreateForm {
 
-    @NotNull
     private Long id;
 
     @NotNull
@@ -28,8 +28,7 @@ public class UserCreateForm {
     private String lastname;
 
     @NotNull
-    @Size(min = 2, max = 30)
-    private String role;
+    private List<String> roles;
 
     public UserCreateForm() {
     }
@@ -40,7 +39,7 @@ public class UserCreateForm {
         this.password = user.getPassword();
         this.firstname = user.getFirstname();
         this.lastname = user.getLastname();
-        this.role = user.getRole();
+        this.roles = user.getRoles();
     }
 
     public Long getId() {
@@ -83,12 +82,12 @@ public class UserCreateForm {
         this.lastname = lastname;
     }
 
-    public String getRole() {
-        return role;
+    public List<String> getRoles() {
+        return roles;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(List<String> role) {
+        this.roles = role;
     }
 
 }

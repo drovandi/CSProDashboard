@@ -60,7 +60,7 @@ $(document)
                         'data': 'email'
                     },
                     {
-                        'data': 'role'
+                        'data': 'roles'
                     },
                     {
                         "render": function (data,

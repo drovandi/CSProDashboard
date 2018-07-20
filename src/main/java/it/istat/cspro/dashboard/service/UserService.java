@@ -37,7 +37,7 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(uf.getPassword()));
         user.setFirstname(uf.getFirstname());
         user.setLastname(uf.getLastname());
-        user.setRole(uf.getRole());
+        user.setRoles(uf.getRoles());
         userDao.save(user);
 
         return user;
@@ -51,7 +51,7 @@ public class UserService {
         user.setEmail(uf.getEmail());
         user.setFirstname(uf.getFirstname());
         user.setLastname(uf.getLastname());
-        user.setRole(uf.getRole());
+        user.setRoles(uf.getRoles());
         userDao.save(user);
 
         return user;

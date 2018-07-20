@@ -1,6 +1,8 @@
 package it.istat.cspro.dashboard.domain;
 
+import it.istat.cspro.dashboard.utils.StringListConverter;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Email;
@@ -40,7 +42,8 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "role")
-    private String role;
+    @Convert(converter = StringListConverter.class)
+    private List<String> roles;
 
     public User() {
     }
@@ -52,7 +55,7 @@ public class User implements Serializable {
         this.firstname = user.getFirstname();
         this.middlename = user.getMiddlename();
         this.lastname = user.getLastname();
-        this.role = user.getRole();
+        this.roles = user.getRoles();
     }
 
     public Long getId() {
@@ -103,12 +106,12 @@ public class User implements Serializable {
         this.lastname = lastname;
     }
 
-    public String getRole() {
-        return role;
+    public List<String> getRoles() {
+        return roles;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 
 }
