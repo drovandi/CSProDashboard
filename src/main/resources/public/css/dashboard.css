@@ -47,6 +47,10 @@ body, html {
 }
 
 /* START HEADER */
+.navbar{
+    min-height: 50px;
+}
+
 .topnavbar {
     margin-bottom: 0px;
     padding-right: 10px;
@@ -54,8 +58,9 @@ body, html {
     min-width: 350px;
 }
 .navbar-brand {
-    font-size:25px !important;
-    padding: 5px 15px !important;
+    font-size:20px !important;
+    padding-top: 15px !important;
+    height: 50px!important;
 }
 .nav .fa {
     margin-right: 5px;
@@ -76,7 +81,7 @@ body, html {
 /* START LEFT SIDEBAR */
 .wrapper>.aside {
     position: absolute;
-    width: 220px;
+    width: 240px;
     top: 0;
     left: 0;
     bottom: 0;
@@ -86,9 +91,9 @@ body, html {
 }
 .wrapper>.aside .aside-inner {
     overflow: hidden;
-    padding-top: 60px;
+    padding-top: 50px;
     height: 100%;
-    width: 220px;
+    width: 240px;
 }
 .sidebar {
     height: 100%;
@@ -110,7 +115,7 @@ body, html {
 }
 
 .sidebar>.nav {
-    padding-top: 10px;
+    padding-top: 3px;
     padding-left: 10px;
     padding-bottom: 20px;
 
@@ -127,16 +132,15 @@ body, html {
     background-color: transparent!important;
 }
 .toggle-menu {
-    font-size: 20px;
-    padding-left: 90px;
+    padding-left: 30px;
     z-index: 200;
     cursor: pointer;
 }
 .aside.toggle-off {
-    margin-left: -170px;
+    margin-left: -240px;
 }
 section.toggle-off, footer.toggle-off {
-    margin-left: 50px!important;
+    margin-left: 0px!important;
 }
 aside.toggle-off .active {
     background-color: inherit;
@@ -159,10 +163,10 @@ aside.toggle-off .active {
 }
 .content-wrapper > .content-heading, .content-wrapper>h3 {
     margin: -20px;
-    margin-top: 42px;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    padding: 14px;
+    font-size: 15px;
     line-height: 1.1;
     color: #333;
     font-weight: 400;
@@ -175,9 +179,14 @@ aside.toggle-off .active {
     color: #909fa7;
 }
 
+.row-padding{
+    margin-left: -8px!important;
+    margin-right: -8px!important;
+}
+
 /* START FOOTER */
 .wrapper>footer, .wrapper>section {
-    margin-left: 220px;
+    margin-left: 240px;
 }
 .wrapper>footer {
     position: absolute;

@@ -64,20 +64,10 @@ function doToggling(w) {
         $("aside").addClass("toggle-off");
         $("section").addClass("toggle-off");
         $("footer").addClass("toggle-off");
-        $("#toggle-menu").removeClass("fa-chevron-left");
-        $("#toggle-menu").addClass("fa-chevron-right");
-        $(".sidebar .nav span").addClass("hide-text");
-        $(".sidebar .nav i").addClass("push-icon-right");
-        $(".sidebar-subnav>li>a").addClass("less-padding-icon-menu");
     } else {
         $("aside").removeClass("toggle-off");
         $("section").removeClass("toggle-off");
         $("footer").removeClass("toggle-off");
-        $("#toggle-menu").removeClass("fa-chevron-right");
-        $("#toggle-menu").addClass("fa-chevron-left");
-        $(".sidebar .nav span").removeClass("hide-text");
-        $(".sidebar .nav i").removeClass("push-icon-right");
-        $(".sidebar-subnav>li>a").removeClass("less-padding-icon-menu");
     }
 }
 

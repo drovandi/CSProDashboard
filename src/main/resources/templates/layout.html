@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head th:fragment="site-head">
         <meta charset="utf-8" />
@@ -21,16 +21,13 @@
     </head>
 
     <body>
-
         <div class="wrapper">
-
             <header th:fragment="site-header" th:remove="tag">
-
                 <div class="topnavbar-wrapper">
                     <nav role="navigation" class="navbar navbar-default navbar-fixed-top topnavbar">
                         <div class="navbar-brand">
-                            <i class="fa fa-bar-chart fa-2x"></i>
-                            CSPro Dashboard
+                            CSPro Dashboard 
+                            <span class="toggle-menu" onclick="toggleMenu()"><i id="toggle-menu" class="fa fa-bars"></i></span>
                         </div>
                         <div class="nav pull-right small-screen">
                             <div class="btn-group btn-group-xs">
@@ -62,10 +59,6 @@
                 <aside class="aside">
                     <div class="aside-inner">
                         <nav data-sidebar-anyclick-close="" class="sidebar">
-                            <div class="sidebar-title">
-                                <span class="nav-heading">Menu</span>
-                                <span class="toggle-menu" onclick="toggleMenu()"><i id="toggle-menu" class="fa"></i></span>
-                            </div>
                             <ul class="nav">
                                 <li class="nav-body active">
                                     <a href="index.html"

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="site-head">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -17,7 +16,6 @@
         <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
     </head>
     <body>
-
         <div class="wrapper">
             <div class="block-center mt-xl wd-xl">
                 <!-- START LOGIN PANEL-->
@@ -50,21 +48,15 @@
                                 <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Invalid password</span>
                                 <span class="fa fa-lock form-control-feedback text-muted"></span>
                             </div>
-
                             <button type="submit" class="btn btn-block btn-primary mt-lg" value="Login">Login</button>
                         </form>
-
                     </div>
                 </div>
-
             </div>
 
             <div class="p-lg text-center">
                 CSPro Dashboard
             </div>
-
         </div>
-
     </body>
-
 </html>
