@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head th:fragment="site-head">
         <meta charset="utf-8" />
@@ -21,16 +21,13 @@
     </head>
 
     <body>
-
         <div class="wrapper">
-
             <header th:fragment="site-header" th:remove="tag">
-
                 <div class="topnavbar-wrapper">
                     <nav role="navigation" class="navbar navbar-default navbar-fixed-top topnavbar">
                         <div class="navbar-brand">
-                            <i class="fa fa-bar-chart fa-2x"></i>
-                            CSPro Dashboard
+                            CSPro Dashboard 
+                            <span class="toggle-menu" onclick="toggleMenu()"><i id="toggle-menu" class="fa fa-bars"></i></span>
                         </div>
                         <div class="nav pull-right small-screen">
                             <div class="btn-group btn-group-xs">
@@ -62,12 +59,8 @@
                 <aside class="aside">
                     <div class="aside-inner">
                         <nav data-sidebar-anyclick-close="" class="sidebar">
-                            <div class="sidebar-title">
-                                <span class="nav-heading">Menu</span>
-                                <span class="toggle-menu" onclick="toggleMenu()"><i id="toggle-menu" class="fa"></i></span>
-                            </div>
                             <ul class="nav">
-                                <li class="nav-body active">
+                                <li class="nav-body active menu-spacer">
                                     <a href="index.html"
                                        title="Home" th:href="@{/}" class="active"> 
                                         <i class="fa fa-home"></i>
@@ -137,9 +130,9 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')">
+                                <li class="nav-body menu-spacer" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')">
                                     <a href="#gis" title="GIS maps" data-toggle="collapse" class="collapsed" aria-expanded="false">
-                                        <i class="fa fa-cogs"></i>
+                                        <i class="fa fa-map-marker"></i>
                                         <span>GIS maps</span>
                                     </a>
                                     <ul id="gis" class="nav sidebar-subnav collapse" aria-expanded="false">
@@ -154,13 +147,13 @@
                                 <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
                                     <a href="#cspro2sql" title="CSPro2Sql" data-toggle="collapse"
                                        class="collapsed" aria-expanded="false">
-                                        <i class="fa fa-briefcase"></i>
+                                        <i class="fa fa-tasks"></i>
                                         <span>CSPro2Sql</span>
                                     </a>
                                     <ul id="cspro2sql" class="nav sidebar-subnav collapse" aria-expanded="false">
                                         <li id="cspro2sql-errors">
                                             <a title="Errors" th:href="@{/admin/errors}">
-                                                <i class="fa fa-users"></i>
+                                                <i class="fa fa-exclamation-triangle"></i>
                                                 <span>Errors</span>
                                             </a>
                                         </li>

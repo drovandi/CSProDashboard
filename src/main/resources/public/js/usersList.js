@@ -1,122 +1,118 @@
 var _ctx = $("meta[name='ctx']").attr("content");
 var table;
 var tabled_changed = false;
-$(document)
-  .ready(
-    function () {
-        setMenuActive("users-list");
+$(document).ready(function () {
+    setMenuActive("users-list");
 
-        table = $('#userslist')
-          .DataTable(
-            {
-                // dom : 'Bfrtip',
-                dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>"
-                  + "<'row'<'col-sm-12'tr>>"
-                  + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-                responsive: true,
-                buttons: [{
-                        extend: 'csvHtml5',
-                        filename: 'usersList',
-                        title: 'usersList',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
-                        }
-                    }, {
-                        extend: 'excelHtml5',
-                        filename: 'usersList',
-                        title: 'usersList',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
-                        }
-                    }, {
-                        extend: 'pdfHtml5',
-                        filename: 'usersList',
-                        title: 'usersList',
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
-                        }
-                    }],
-                "ajax": {
-                    "dataType": 'json',
-                    "contentType": "application/json; charset=utf-8",
-                    "type": "POST",
-                    "url": _ctx + "/users/restlist",
-                    "dataSrc": function (json) {
-
-                        return json;
-                    }
-                },
-                "columns": [
-                    {
-                        'data': 'id'
-                    },
-                    {
-                        'data': 'firstname'
-                    },
-                    {
-                        'data': 'lastname'
-                    },
-                    {
-                        'data': 'email'
-                    },
-                    {
-                        'data': 'role'
-                    },
-                    {
-                        "render": function (data,
-                          type, row) {
-                            return '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
-                              + row.id
-                              + ');"><i class="fa fa-pencil"></i></a>'
-                              + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Change Password" onclick="javascript:open_changepassword('
-                              + row.id
-                              + ',\''
-                              + row.email
-                              + '\');"><i class="fa fa-key"></i></a>'
-                              + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
-                              + row.id
-                              + ',\''
-                              + row.email
-                              + '\');"><i class="fa fa-trash-o"></i></a>';
-                        },
-                        "orderable": false
-                    }
-                ]
-            });
-
-        table.buttons().container().appendTo(
-          '#userslist_wrapper .col-sm-6:eq(0)');
-
-        $('#modal_form').on('hide.bs.modal', function () {
-            if (tabled_changed)
-                close();
-        })
-        $('#modalDelete_form').on('hide.bs.modal', function () {
-            $('#delEmail').empty();
-            $('#delId').empty();
-            $('#msgsDel').empty();
-
-        })
-
-        $("input[type=password]")
-          .keyup(
-            function () {
-
-                $('#msgsCp').empty();
-                $("#btnChangePassword").prop(
-                  "disabled", true);
-
-                if (($("#passwordcp").val().trim().length >= 3)) {
-                    if ($("#passwordcp").val() == $(
-                      "#passwordcp1").val()) {
-
-                        $("#btnChangePassword").prop(
-                          "disabled", false);
-                    }
+    table = $('#userslist').DataTable({
+        // dom : 'Bfrtip',
+        dom: "<'row'<'col-sm-6'B>>"
+                + "<'row'<'col-sm-12'tr>>"
+                + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        responsive: true,
+        buttons: [{
+                extend: 'csvHtml5',
+                filename: 'usersList',
+                title: 'usersList',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4]
                 }
-            });
+            }, {
+                extend: 'excelHtml5',
+                filename: 'usersList',
+                title: 'usersList',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4]
+                }
+            }, {
+                extend: 'pdfHtml5',
+                filename: 'usersList',
+                title: 'usersList',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4]
+                }
+            }],
+        "ajax": {
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "type": "POST",
+            "url": _ctx + "/users/restlist",
+            "dataSrc": function (json) {
 
-    });// fine ready
+                return json;
+            }
+        },
+        "columns": [
+            {
+                'data': 'id'
+            },
+            {
+                'data': 'firstname'
+            },
+            {
+                'data': 'lastname'
+            },
+            {
+                'data': 'email'
+            },
+            {
+                'data': 'role'
+            },
+            {
+                "render": function (data,
+                        type, row) {
+                    return '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
+                            + row.id
+                            + ');"><i class="fa fa-pencil"></i></a>'
+                            + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Change Password" onclick="javascript:open_changepassword('
+                            + row.id
+                            + ',\''
+                            + row.email
+                            + '\');"><i class="fa fa-key"></i></a>'
+                            + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
+                            + row.id
+                            + ',\''
+                            + row.email
+                            + '\');"><i class="fa fa-trash-o"></i></a>';
+                },
+                "orderable": false
+            }
+        ]
+    });
+
+    table.buttons().container().appendTo(
+            '#userslist_wrapper .col-sm-6:eq(0)');
+
+    $('#modal_form').on('hide.bs.modal', function () {
+        if (tabled_changed)
+            close();
+    })
+    $('#modalDelete_form').on('hide.bs.modal', function () {
+        $('#delEmail').empty();
+        $('#delId').empty();
+        $('#msgsDel').empty();
+
+    })
+
+    $("input[type=password]")
+            .keyup(
+                    function () {
+
+                        $('#msgsCp').empty();
+                        $("#btnChangePassword").prop(
+                                "disabled", true);
+
+                        if (($("#passwordcp").val().trim().length >= 3)) {
+                            if ($("#passwordcp").val() == $(
+                                    "#passwordcp1").val()) {
+
+                                $("#btnChangePassword").prop(
+                                        "disabled", false);
+                            }
+                        }
+                    });
+
+});// fine ready
 
 function add_user() {
     save_method = 'add';
@@ -149,7 +145,7 @@ function edit_user(id) {
         dataType: "JSON",
         success: function (data) {
             for (var i in data) {
-                $('[name="'+i+'"]').val(data[i]);
+                $('[name="' + i + '"]').val(data[i]);
             }
             $('#modal_form').modal('show');
             $('.modal-title').text('Edit User');
@@ -214,18 +210,18 @@ function save() {
 
 
                 $.each(data,
-                  function (index, msg) {
-                      var classs = 'alert alert-info';
-                      if (msg.type == 'INFO')
-                          classs = 'alert alert-success';
-                      else if (msg.type == 'ERROR')
-                          classs = 'alert alert-danger';
-                      var div = $('<div class="' + classs + '"><strong>'
-                        + msg.type + '</strong>: ' + msg.text
-                        + ' </div>"');
-                      $("#msgs").append(div);
+                        function (index, msg) {
+                            var classs = 'alert alert-info';
+                            if (msg.type == 'INFO')
+                                classs = 'alert alert-success';
+                            else if (msg.type == 'ERROR')
+                                classs = 'alert alert-danger';
+                            var div = $('<div class="' + classs + '"><strong>'
+                                    + msg.type + '</strong>: ' + msg.text
+                                    + ' </div>"');
+                            $("#msgs").append(div);
 
-                  });
+                        });
             }
 
             $('#btnSave').text('Save'); // change button text
@@ -264,18 +260,18 @@ function delete_user() {
 
             if (data) {
                 $.each(data,
-                  function (index, msg) {
-                      var classs = 'alert alert-info';
-                      if (msg.type == 'INFO')
-                          classs = 'alert alert-success';
-                      else if (msg.type == 'ERROR')
-                          classs = 'alert alert-danger';
-                      var div = $('<div class="' + classs + '"><strong>'
-                        + msg.type + '</strong>: ' + msg.text
-                        + ' </div>"');
-                      $("#msgsDel").append(div);
+                        function (index, msg) {
+                            var classs = 'alert alert-info';
+                            if (msg.type == 'INFO')
+                                classs = 'alert alert-success';
+                            else if (msg.type == 'ERROR')
+                                classs = 'alert alert-danger';
+                            var div = $('<div class="' + classs + '"><strong>'
+                                    + msg.type + '</strong>: ' + msg.text
+                                    + ' </div>"');
+                            $("#msgsDel").append(div);
 
-                  });
+                        });
             }
 
             $('#btnDelete').hide(); // set button enable
@@ -309,7 +305,7 @@ function update_password() {
         data: {
             'id': id,
             'passw': password
-              // 
+                    // 
         },
         success: function (data) {
 
