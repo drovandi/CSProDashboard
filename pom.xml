@@ -83,6 +83,11 @@
             </plugin>
         </plugins>
         <finalName>dashboard</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 
     <profiles>

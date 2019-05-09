@@ -1,8 +1,7 @@
-
 body {
     min-height: 100%;
-    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
-    color: #555;
+    font-family: BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif;
+    color: #333;
     background-color: #f5f7fa;
 }
 body, html {
@@ -12,6 +11,14 @@ body, html {
 }
 
 /* login */
+
+#login-panel .panel-heading, #login-panel .btn-primary{
+    background-color: #196889;
+}
+
+#login-panel .btn-primary:hover{
+    background-color: #155873;
+}
 
 .wd-xl {
     width: 320px;
@@ -24,8 +31,8 @@ body, html {
 }
 
 .panel-heading {
-
-    font-size: 18px !important;
+    font-size: 14px !important;
+    font-weight: 500;
     color: #fff;
 }
 .form-control {
@@ -52,6 +59,11 @@ body, html {
     border-color: #cccccc;
 }
 
+#login-panel .btn-default {
+    color: #555;
+    background-color: #196889;
+    border-color: #cccccc;
+}
 
 /* START HEADER */
 .navbar{
@@ -59,6 +71,7 @@ body, html {
 }
 
 .topnavbar {
+    background-color: #196889;
     margin-bottom: 0px;
     padding-right: 10px;
     z-index: 120;
@@ -68,8 +81,17 @@ body, html {
     font-size:20px !important;
     padding-top: 15px !important;
     height: 50px!important;
-    padding-left: 15px;
+    padding-left: 25px;
 }
+
+.navbar-btn{
+    color:white;
+}
+
+.navbar-btn:hover{
+    background-color:#155873;
+}
+
 .nav .fa {
     margin-right: 5px;
 }
@@ -84,6 +106,27 @@ body, html {
     margin-right:0px;
     margin-top: 20px;
 }
+
+.bar-right{
+    color:#555;
+    margin-right: 5px;
+}
+
+.bar-right:hover{
+    color:#155873;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalInfo .modal-title{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#modalInfo .modal-body{
+    padding-bottom: 20px;
+}
+
 /* END HEADER */
 
 /* START LEFT SIDEBAR */
@@ -106,7 +149,7 @@ body, html {
 .sidebar {
     height: 100%;
     padding-bottom: 20px;
-    overflow-y: hidden;
+    overflow-y: auto;
     border-right: 1px solid #ddd;
     background-color: #fafbfc;
 }
@@ -123,7 +166,6 @@ body, html {
 }
 
 .sidebar>.nav {
-    padding-top: 3px;
     padding-left: 10px;
     padding-bottom: 20px;
 
@@ -155,8 +197,38 @@ aside.toggle-off .active {
 }
 
 .menu-spacer{
-    border-bottom: 1px solid #155873;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #196889;
+    margin-bottom: 5px;
+}
+.nav > li > a{
+    color: #196889;
+    padding: 15px;
+}
+
+.nav ul > li > a{
+    color: #196889;
+    padding-left: 40px;
+    padding-top: 3px;
+}
+
+.nav > li > a:hover{
+    background-color: #fafbfc;
+    text-decoration: none;
+    color:#155873;
+}
+
+.nav > li > a:focus {
+    background-color: #fafbfc;
+    text-decoration: none;
+}
+
+.active{
+    color:#02171f;
+    font-weight: 500;
+}
+
+#Home{
+    padding-bottom: 8px;
 }
 
 /* END LEFT SIDEBAR */
@@ -180,7 +252,7 @@ aside.toggle-off .active {
     margin-top: 30px;
     margin-bottom: 12px;
     padding: 14px;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.1;
     color: #333;
     font-weight: 400;
@@ -198,6 +270,11 @@ aside.toggle-off .active {
     margin-right: -8px!important;
 }
 
+.breadcrumb{
+    padding: 0px 5px;
+    margin-bottom: 0px;
+    background-color: #fafbfc;
+}
 /* START FOOTER */
 .wrapper>footer, .wrapper>section {
     margin-left: 240px;
@@ -207,10 +284,10 @@ aside.toggle-off .active {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 60px;
+    height: 50px;
     border-top: 1px solid #ddd;
     background-color: #fafbfc;
-    padding: 20px;
+    padding: 15px;
     z-index: 109;
 }
 /* END FOOTER */
@@ -236,23 +313,28 @@ aside.toggle-off .active {
     table-layout: fixed;
     vertical-align: middle;
 }
+
+.widget-title{
+    font-size: 16px;
+    font-weight: 500;
+}
 .widget-content {
     padding-bottom: 15px!important;
 }
 .bg-blue {
-    background-color: #5d9cec;
+    background-color: #2189b4;
     color: #fff!important;
 }
 .bg-blue-dark {
-    background-color: #2f80e7;
+    background-color: #196889;
     color: #fff!important;
 }
-.bg-purple {
-    background-color: #7266ba;
+.bg-grey {
+    background-color: #f86c6b;
     color: #fff!important;
 }
-.bg-purple-dark {
-    background-color: #564aa3;
+.bg-grey-dark {
+    background-color: #f5302e;
     color: #fff!important;
 }
 /* END WIDGET */
@@ -413,10 +495,9 @@ fieldset {
     padding-left:15px!important;
 }
 .bs-callout {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #2189b4;
-    border-left-width: 5px;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
     border-radius: 3px;
     background-color: white;
 }

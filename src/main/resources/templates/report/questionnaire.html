@@ -17,8 +17,10 @@
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">
-                        Household
-                        <small>Table</small>
+                        <ol class="breadcrumb">
+                            <li>Analysis report </li>
+                            <li>Household </li>
+                        </ol>
                     </div>
                     <div class="container-fluid">
 
@@ -31,14 +33,14 @@
 
                                     <!-- START WIDGET -->
                                     <div class="col-lg-3 col-sm-6">
-                                        <div class="panel widget bg-purple">
+                                        <div class="panel widget bg-blue">
                                             <div class="row row-table">
-                                                <div class="col-xs-4 text-center bg-purple-dark ">
+                                                <div class="col-xs-4 text-center bg-blue-dark ">
                                                     <em class="fa fa-file-text-o fa-3x"></em>
                                                 </div>
                                                 <div class="col-xs-8 widget-content">
                                                     <div class="h2 mt0" id="questionnaireCount1"></div>
-                                                    <div class="text-uppercase">Number of Households</div>
+                                                    <div class="text-uppercase">Total Households</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,9 +69,7 @@
                     </div>
                 </div>
             </section>
-
             <footer th:replace="layout :: site-footer" />
-
         </div>
     </body>
 

@@ -15,7 +15,7 @@ $(document).ready(function () {
         $('#password').val('');
         $('#password1').val('');
         $('#msgs').empty();
-    })
+    });
 });
 
 function update_mypassword() {

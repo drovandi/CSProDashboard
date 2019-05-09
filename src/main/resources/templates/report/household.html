@@ -19,15 +19,17 @@
         <div class="wrapper">
             <header th:replace="layout :: site-header" />
             <aside th:replace="layout :: site-aside" />
-
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">
-                        Household by <span th:text="${reportType.toUpperCase()}"></span>
+                        <ol class="breadcrumb">
+                            <li>Progress report </li>
+                            <li>Household by <span th:text="${reportType.toUpperCase()}"></span></li>
+                        </ol>
                     </div>
                     <div class="container-fluid">
                         <div class="row mb-lg row-padding"> 
-                            <div class="panel panel-default">
+                            <div class="panel">
                                 <div class="panel-body">
                                     <table id="householdlist" class="table table-striped" cellspacing="0" width="100%">
                                     </table>
@@ -37,10 +39,7 @@
                     </div>
                 </div>
             </section>
-
             <footer th:replace="layout :: site-footer" />
-
         </div>
     </body>
-
 </html>

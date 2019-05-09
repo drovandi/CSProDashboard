@@ -31,7 +31,7 @@
                         </div>
                         <div class="nav pull-right small-screen">
                             <div class="btn-group btn-group-xs">
-                                <a sec:authorize="isAuthenticated()" href="#" th:href="@{/users/logout}" class="btn btn-primary navbar-btn">
+                                <a sec:authorize="isAuthenticated()" href="#" th:href="@{/users/logout}" class="btn navbar-btn">
                                     <i class="fa fa-sign-out fa-fw"></i>
                                     <span class="small-screen-hide">
                                         Sign out
@@ -53,6 +53,27 @@
                         </div>    
                     </div>
                 </div>
+                
+                                <div class="modal fade" id="modalInfo" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <span class="modal-title">
+                                    Report description
+                                </span>
+                            </div>
+                            <div class="modal-body">
+                                <span>
+                                    An Enumeration Area is considered to be returned when at least one 
+                                    questionnaire arrived at CSA
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
             </header>
 
             <aside th:fragment="site-aside" th:remove="tag">
@@ -60,9 +81,8 @@
                     <div class="aside-inner">
                         <nav data-sidebar-anyclick-close="" class="sidebar">
                             <ul class="nav">
-                                <li class="nav-body active menu-spacer">
-                                    <a href="index.html"
-                                       title="Home" th:href="@{/}" class="active"> 
+                                <li class="nav-body menu-spacer">
+                                    <a id="Home" href="index.html" title="Home" th:href="@{/}" > 
                                         <i class="fa fa-home"></i>
                                         <span>Home</span>
                                     </a>
@@ -154,7 +174,7 @@
                                         <li id="cspro2sql-errors">
                                             <a title="Errors" th:href="@{/admin/errors}">
                                                 <i class="fa fa-exclamation-triangle"></i>
-                                                <span>Errors</span>
+                                                <span>Loading errors</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -169,7 +189,7 @@
                                         <li id="users-list">
                                             <a title="Users List" th:href="@{/users/userlist}">
                                                 <i class="fa fa-users"></i>
-                                                <span>Users list</span>
+                                                <span>Users</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -181,23 +201,11 @@
             </aside>
 
             <section>
-                <div class="content-wrapper">
-                    <div class="content-heading">
-                        CSPro Dashboard - Layout <small>Field Work monitor</small>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Welcome to CSPro Dashboard <strong sec:authentication="name">User</strong>
-                        </div>
-                        <div class="panel-body">Choose a report!</div>
-                    </div>
-
-                </div>
+                <!-- Business logic goes here-->
             </section>
 
             <footer th:fragment="site-footer">
-                CSPro Dashboard
+                Istat Cooperation
             </footer>
 
         </div>

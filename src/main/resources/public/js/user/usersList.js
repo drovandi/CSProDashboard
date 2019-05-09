@@ -61,15 +61,15 @@ $(document).ready(function () {
             {
                 "render": function (data,
                         type, row) {
-                    return '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
+                    return '<a class="btn btn-sm btn-default" href="javascript:void(0)" title="Edit" onclick="javascript:edit_user('
                             + row.id
                             + ');"><i class="fa fa-pencil"></i></a>'
-                            + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Change Password" onclick="javascript:open_changepassword('
+                            + '&nbsp;<a class="btn btn-sm btn-default" href="javascript:void(0)" title="Change Password" onclick="javascript:open_changepassword('
                             + row.id
                             + ',\''
                             + row.email
-                            + '\');"><i class="fa fa-key"></i></a>'
-                            + '&nbsp;<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
+                            + '\');"><i class="fa fa-lock"></i></a>'
+                            + '&nbsp;<a class="btn btn-sm btn-default" href="javascript:void(0)" title="Delete" onclick="javascript:open_delete('
                             + row.id
                             + ',\''
                             + row.email

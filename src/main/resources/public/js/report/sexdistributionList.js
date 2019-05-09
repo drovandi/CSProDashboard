@@ -23,11 +23,11 @@ $(document).ready(function () {
                 datasets: [
                     {
                         data: arrDataMale,
-                        backgroundColor: color[5][2],
+                        backgroundColor: '#f53131',
                         label: 'Male'
                     }, {
                         data: arrDataFemale,
-                        backgroundColor: color[69][2],
+                        backgroundColor: '#196889',
                         label: 'Female'
                     }],
             },

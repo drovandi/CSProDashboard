@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <head th:replace="layout :: site-head" />
     <head>
-        <script th:src="@{/js/user.js}" type="text/javascript"></script>
+        <script th:src="@{/js/user/user.js}" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
                 setMenuActive("edituser");
@@ -19,13 +19,10 @@
             }
         </style>
     </head>
-
     <body>
-
         <div class="wrapper">
             <header th:replace="layout :: site-header" />
             <aside th:replace="layout :: site-aside" />
-
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">
@@ -109,8 +106,8 @@
                                 </div>
                             </form>
 
-                            <br>
-                            
+                            <br/>
+
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">

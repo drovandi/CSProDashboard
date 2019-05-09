@@ -6,13 +6,13 @@ $(window).resize(function () {
 
 $(function () {
     toggleMenu(true);
-    $('body').css('min-height', 40 * $('ul.nav li').length + 150);
+    //$('body').css('min-height', 40 * $('ul.nav li').length + 150);
 });
 
 //Set menu active
 function setMenuActive(id) {
-    $("#" + id).addClass("active");
-    $("#" + id + " a").addClass('active').parent().parent().addClass('in').parent();
+    var navMenu = $("#" + id + " a").addClass('active').parent().parent().addClass('in').parent();
+    navMenu.children("a").addClass('active');
 }
 
 function toggleMenu(load) {
@@ -86,3 +86,9 @@ $.getJSON = function (a, b) {
         $('#loading').modal('hide');
     });
 };
+
+function showModalInfo(title, content){
+    $('#modalInfo .modal-title').text(title);
+    $('#modalInfo .modal-body').text(content);
+    $('#modalInfo').modal('show'); // show bootstrap modal
+}
