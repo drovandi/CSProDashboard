@@ -122,6 +122,11 @@
                                                 <span>Population</span>
                                             </a>
                                         </li>
+                                        <li id="report-questionnaire" th:if="${reports.contains('r_questionnaire_info')}">
+                                            <a title="Household" th:href="@{/report/questionnaire}">
+                                                <span>Households</span>
+                                            </a>
+                                        </li>
                                         <li id="report-sexdistribution" th:if="${reports.contains('r_sex_by_age_group')}">
                                             <a title="Sex Distribution" th:href="@{/report/sexdistribution}">
                                                 <span>Sex Distribution by Country</span>
@@ -132,21 +137,11 @@
                                                 <span>Sex Distribution by Region</span>
                                             </a>
                                         </li>
-                                        <li id="report-questionnaire" th:if="${reports.contains('r_questionnaire_info')}">
-                                            <a title="Household" th:href="@{/report/questionnaire}">
-                                                <span>Household</span>
-                                            </a>
-                                        </li>
-                                        <li id="report-religion" th:if="${reports.contains('r_religion')}">
-                                            <a title="Religion" th:href="@{/report/religion}">
-                                                <span>Religion</span>
-                                            </a>
-                                        </li>
-                                        <li id="report-populationResidence" th:if="${reports.contains('r_population_type_of_residence')}">
+                                        <!--li id="report-populationResidence" th:if="${reports.contains('r_population_type_of_residence')}">
                                             <a title="Religion" th:href="@{/report/populationResidence}">
                                                 <span>Table 2.3</span>
                                             </a>
-                                        </li>
+                                        </li-->
                                     </ul>
                                 </li>
 
@@ -155,13 +150,13 @@
                                         <i class="fa fa-map-marker"></i>
                                         <span>GIS maps</span>
                                     </a>
-                                    <ul id="gis" class="nav sidebar-subnav collapse" aria-expanded="false">
+                                    <!--ul id="gis" class="nav sidebar-subnav collapse" aria-expanded="false">
                                         <li id="maps-by-region">
                                             <a title="Maps by Region" th:href="@{/gis/region}">
                                                 <span>Maps by Region</span>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul-->
                                 </li>
 
                                 <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
@@ -180,19 +175,10 @@
                                     </ul>
                                 </li>
                                 <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
-                                    <a href="#admin" title="Administration" data-toggle="collapse"
-                                       class="collapsed" aria-expanded="false">
+                                    <a th:href="@{/users/userlist}" title="Administration">
                                         <i class="fa fa-briefcase"></i>
                                         <span>Administration</span>
                                     </a>
-                                    <ul id="admin" class="nav sidebar-subnav collapse" aria-expanded="false">
-                                        <li id="users-list">
-                                            <a title="Users List" th:href="@{/users/userlist}">
-                                                <i class="fa fa-users"></i>
-                                                <span>Users</span>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </nav>

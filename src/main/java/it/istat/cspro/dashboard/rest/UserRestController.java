@@ -40,8 +40,7 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/users/restNewUser", method = RequestMethod.POST)
-    public List<NotificationMessage> newUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form,
-            BindingResult bindingResult) {
+    public List<NotificationMessage> newUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form, BindingResult bindingResult) {
         notificationService.removeAllMessages();
         if (!bindingResult.hasErrors()) {
             try {
@@ -60,8 +59,7 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/users/restUpdateUser", method = RequestMethod.POST)
-    public List<NotificationMessage> updateUser(@Valid @ModelAttribute("userCreateForm") UserUpdateForm form,
-            BindingResult bindingResult) {
+    public List<NotificationMessage> updateUser(@Valid @ModelAttribute("userCreateForm") UserUpdateForm form, BindingResult bindingResult) {
         notificationService.removeAllMessages();
         if (!bindingResult.hasErrors()) {
             try {

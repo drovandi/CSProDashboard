@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.Email;
 
 public class UserCreateForm {
 
-    @NotNull
     private Long id;
 
     @NotNull
