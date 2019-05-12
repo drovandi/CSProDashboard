@@ -4,7 +4,16 @@
     <head th:replace="layout :: site-head"/>
     <head>
         <script th:src="@{/js/chart/jquery.classyloader.min.js}"></script>
-        <script th:src="@{/js/report/regions.js}"></script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var firstLevelGeography = /*[[${firstLevelGeography}]]*/;
+            /*]]>*/
+        </script>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var reports = /*[[${reports}]]*/;
+            /*]]>*/
+        </script>
         <script th:src="@{/js/report/questionnaire.js}"></script>
     </head>
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReportRestController {
 
     private static final Pattern HOUSEHOLD_BY_PATTERN = Pattern.compile("^householdBy(.*)$");
+    private static final Pattern EAS_BY_PATTERN = Pattern.compile("^eaBy(.*)$");
     private static final Map<String, String> CACHE = new HashMap<>();
 
     @Autowired
@@ -28,9 +29,12 @@ public class ReportRestController {
     public Object objectReport(@PathVariable("key") String key,
             @RequestParam(name = "region", required = false) Integer region) {
         try {
-            Matcher m = HOUSEHOLD_BY_PATTERN.matcher(key);
-            if (m.find()) {
-                return processService.getHouseholdExpectedBy(m.group(1));
+            Matcher mHH = HOUSEHOLD_BY_PATTERN.matcher(key);
+            Matcher mEA = EAS_BY_PATTERN.matcher(key);
+            if (mHH.find()) {
+                return processService.getHouseholdExpectedBy(mHH.group(1));
+            } else if (mEA.find()) {
+                return processService.getEaExpectedBy(mEA.group(1));                
             } else if (region != null) {
                 return genericReportService.getGenericReport(getReportName(key), "REGION", region);
             } else {

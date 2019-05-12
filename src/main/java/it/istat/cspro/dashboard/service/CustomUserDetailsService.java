@@ -39,9 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             notificationService.addErrorMessage("Nessun user presente con  user: " + email);
             throw new UsernameNotFoundException("No user present with user: " + email);
         } else {
-            List<String> userRoles = new ArrayList<>();
-            userRoles.add(user.getRole());
-            cud = new CustomUserDetails(user, userRoles);
+            cud = new CustomUserDetails(user, user.getRoles());
             return cud;
         }
     }

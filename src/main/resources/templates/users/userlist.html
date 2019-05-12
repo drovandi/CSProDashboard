@@ -35,7 +35,7 @@
                                         <th>Firstname</th>
                                         <th>Lastname</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Roles</th>
                                         <th>&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -103,11 +103,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Role</label>
+                                    <label class="control-label col-md-3">Roles</label>
                                     <div class="col-md-9">
-                                        <select name="role" class="form-control">
+                                        <select name="roles" class="form-control" multiple="multiple">
                                             <option th:each="rolei : ${allRoles}" th:value="${rolei}"
-                                                    th:text="${rolei}">Role</option>
+                                                    th:text="${rolei}">Roles</option>
                                         </select> <span class="help-block"></span>
                                     </div>
                                 </div>

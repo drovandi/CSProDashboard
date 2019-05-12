@@ -78,6 +78,9 @@
                                                 <span>EAs by COUNTRY</span>
                                             </a>
                                         </li>
+                                        <li th:id="${'report-ea-' + rep}" th:each="rep,iterationStatus : ${eaReports}">
+                                            <a th:title="${'EAs by ' + rep.toUpperCase()}" th:href="@{/report/ea/} + ${rep}" th:text="${'EAs by ' + rep.toUpperCase()}"></a>
+                                        </li>
                                         <li id="report-total-household" th:if="${reports.contains('r_total')}">
                                             <a title="Households by COUNTRY" th:href="@{/report/totalHousehold}">
                                                 <span>Households by COUNTRY</span>
@@ -102,14 +105,19 @@
                                                 <span>Population</span>
                                             </a>
                                         </li>
-                                        <li id="report-sexdistribution" th:if="${reports.contains('r_sex_by_age_group')}">
-                                            <a title="Sex Distribution" th:href="@{/report/sexdistribution}">
+                                        <li id="report-sexdistribution-sexByAgeGroup" th:if="${reports.contains('r_sex_by_age_group')}">
+                                            <a title="Sex Distribution" th:href="@{/report/sexdistribution/sexByAgeGroup}">
                                                 <span>Sex Distribution by Country</span>
                                             </a>
                                         </li>
                                         <li id="report-sexdistributionRegion" th:if="${reports.contains('r_sex_by_age_group_region')}">
                                             <a title="Sex Distribution by Region" th:href="@{/report/sexdistributionRegion}">
                                                 <span>Sex Distribution by Region</span>
+                                            </a>
+                                        </li>
+                                        <li id="report-sexdistribution-sexByBroadAgeGroup" th:if="${reports.contains('r_sex_by_broad_age_group')}">
+                                            <a title="Sex by Broad Age Groups" th:href="@{/report/sexdistribution/sexByBroadAgeGroup}">
+                                                <span>Sex by Broad Age Groups</span>
                                             </a>
                                         </li>
                                         <li id="report-questionnaire" th:if="${reports.contains('r_questionnaire_info')}">
@@ -130,7 +138,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')">
+                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')" th:if="${dashboardInfo.gis}">
                                     <a href="#gis" title="GIS maps" data-toggle="collapse" class="collapsed" aria-expanded="false">
                                         <i class="fa fa-cogs"></i>
                                         <span>GIS maps</span>

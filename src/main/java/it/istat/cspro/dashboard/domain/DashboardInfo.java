@@ -21,6 +21,10 @@ public class DashboardInfo implements Serializable {
     private boolean listing;
     @Column(name = "EXPECTED")
     private boolean expected;
+    @Column(name = "EA_STATUS")
+    private boolean eaStatus;
+    @Column(name = "GIS")
+    private boolean gis;
 
     public int getId() {
         return id;
@@ -44,6 +48,22 @@ public class DashboardInfo implements Serializable {
 
     public void setExpected(boolean expected) {
         this.expected = expected;
+    }
+    
+    public boolean isEaStatus() {
+        return eaStatus;
+    }
+
+    public void setEaStatus(boolean eaStatus) {
+        this.eaStatus = eaStatus;
+    }
+    
+    public boolean isGis() {
+        return gis;
+    }
+
+    public void setGis(boolean gis) {
+        this.gis = gis;
     }
     
 }

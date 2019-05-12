@@ -10,7 +10,8 @@
                 $.getJSON(ctx + "/rest/report/total", function (report) {
                     $('#eaFieldwork').text(format(report[0][1]));
                     $('#eaFreshlist').text(format(report[0][2]));
-                    $('#eaExpected').text(format(report[0][3]));
+                    $('#eaCompleted').text(format(report[0][3]));
+                    $('#eaExpected').text(format(report[0][4]));
                     if ($('.fieldworkFreshlist').length > 0)
                         $('.fieldworkFreshlist').ClassyLoader({
                             percentage: 100. * report[0][1] / report[0][2],
@@ -25,7 +26,7 @@
                         });
                     if ($('.fieldworkExpected').length > 0)
                         $('.fieldworkExpected').ClassyLoader({
-                            percentage: 100. * report[0][1] / report[0][3],
+                            percentage: 100. * report[0][1] / report[0][4],
                             speed: 20,
                             diameter: 70,
                             fontSize: '40px',
@@ -37,7 +38,19 @@
                         });
                     if ($('.freshlistExpected').length > 0)
                         $('.freshlistExpected').ClassyLoader({
-                            percentage: 100. * report[0][2] / report[0][3],
+                            percentage: 100. * report[0][2] / report[0][4],
+                            speed: 20,
+                            diameter: 70,
+                            fontSize: '40px',
+                            roundedLine: true,
+                            fontColor: '#34788c',
+                            lineColor: '#34788c',
+                            remainingLineColor: 'rgba(200,200,200,0.4)',
+                            lineWidth: 10
+                        });
+                    if ($('.completedExpected').length > 0)
+                        $('.completedExpected').ClassyLoader({
+                            percentage: 100. * report[0][3] / report[0][4],
                             speed: 20,
                             diameter: 70,
                             fontSize: '40px',
@@ -69,7 +82,7 @@
                         <div class="bs-callout">
                             <h4>Description</h4>
                             <p>
-                                An Enumeration Area is considered to be returned when at least one questionnaire arrived at CSA
+                                An Enumeration Area is counted in field work when at least one questionnaire has been received by central office
                             </p>
                         </div>
 
@@ -98,13 +111,27 @@
                                         </div>
                                         <div class="col-xs-8 widget-content">
                                             <div class="h2 mt0" id="eaFreshlist"></div>
-                                            <div class="text-uppercase">Freshlist</div>
+                                            <div class="text-uppercase">Listing</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.listing &amp;&amp; dashboardInfo.expected}">
+                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.eaStatus}">
+                                <div class="panel widget bg-blue">
+                                    <div class="row row-table">
+                                        <div class="col-xs-4 text-center bg-blue-dark pv-lg">
+                                            <em class="fa fa-flag-checkered fa-3x"></em>
+                                        </div>
+                                        <div class="col-xs-8 widget-content">
+                                            <div class="h2 mt0" id="eaCompleted"></div>
+                                            <div class="text-uppercase">Completed</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-sm-6" th:if="${dashboardInfo.expected}">
                                 <div class="panel widget bg-blue">
                                     <div class="row row-table">
                                         <div class="col-xs-4 text-center bg-blue-dark pv-lg">
@@ -126,7 +153,7 @@
                             <div class="col-lg-3" th:if="${dashboardInfo.listing}">
                                 <div class="panel panel-default">
                                     <div class="panel-body text-center">
-                                        <div class="text-info">Field Work / Freshlist</div>
+                                        <div class="text-info">Field Work / Listing</div>
                                         <canvas class="fieldworkFreshlist"></canvas>
                                     </div>
                                 </div>
@@ -145,15 +172,27 @@
                             <!-- END WIDGET -->
 
                             <!-- START WIDGET -->
-                            <div class="col-lg-3" th:if="${dashboardInfo.expected}">
+                            <div class="col-lg-3" th:if="${dashboardInfo.listing &amp;&amp; dashboardInfo.expected}">
                                 <div class="panel panel-default">
                                     <div class="panel-body text-center">
-                                        <div class="text-info">Freshlist / Expected</div>
+                                        <div class="text-info">Listing / Expected</div>
                                         <canvas class="freshlistExpected"></canvas>
                                     </div>
                                 </div>
                             </div>
                             <!-- END WIDGET -->
+                            
+                            <!-- START WIDGET -->
+                            <div class="col-lg-3" th:if="${dashboardInfo.eaStatus &amp;&amp; dashboardInfo.expected}">
+                                <div class="panel panel-default">
+                                    <div class="panel-body text-center">
+                                        <div class="text-info">Completed / Expected</div>
+                                        <canvas class="completedExpected"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WIDGET -->
+
                         </div>
                     </div>
                 </div>
