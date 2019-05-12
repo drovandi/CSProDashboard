@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head th:fragment="site-head">
         <meta charset="utf-8" />
@@ -16,44 +16,27 @@
         <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
     </head>
     <body>
-
-        <div class="wrapper">
-
+        <div class="wrapper error">
             <header th:fragment="site-header" th:remove="tag">
-
                 <div class="topnavbar-wrapper">
-
-                    <nav role="navigation" class="navbar topnavbar">
-                        <div class="nav pull-left">
-                            <i class="fa fa-bar-chart fa-2x"></i> CSPro Dashboard <span
-                                class="small-screen-hide">Box</span>
-                        </div>
-                        <div class="nav pull-right small-screen">
-
-                            <a sec:authorize="isAuthenticated()" href="#" th:href="@{/users/logout}">
-                                <i class="fa fa-sign-out fa-fw signout"></i>
-                                <span class="small-screen-hide">
-                                    Sign out <strong sec:authentication="name">User</strong>
-                                </span>
-                            </a>
+                    <nav role="navigation" class="navbar navbar-default navbar-fixed-top topnavbar">
+                        <div class="navbar-brand">
+                            CSPro Dashboard 
+                            <span class="toggle-menu" onclick="toggleMenu()"><i id="toggle-menu" class="fa fa-bars"></i></span>
                         </div>
                     </nav>
                 </div>
-
             </header>
 
             <aside th:fragment="site-aside" th:remove="tag">
                 <aside class="aside">
                     <div class="aside-inner">
-                        <span class="toggle-menu" onclick="toggleMenu()">
-                            <i id="toggle-menu" class="fa"></i>
-                        </span>
                         <nav data-sidebar-anyclick-close="" class="sidebar">
                             <ul class="nav">
-                                <li class="nav-heading"><span>Report List</span></li>
-                                <li class="nav-body active">
-                                    <a href="index.html" title="Home" th:href="@{/}" class="active">
-                                        <i class="fa fa-home"></i> <span>Home</span>
+                                <li class="nav-body menu-spacer">
+                                    <a id="Home" href="index.html" title="Home" th:href="@{/}" > 
+                                        <i class="fa fa-home"></i>
+                                        <span>Home</span>
                                     </a>
                                 </li>
                             </ul>
@@ -61,34 +44,30 @@
                     </div>
                 </aside>
             </aside>
-
             <section>
                 <div class="content-wrapper">
                     <div class="content-heading">
-                        CSPro Dashboard - Error Page <small>Errors</small>
+                        <ol class="breadcrumb">
+                            <li><strong>Oops! Something went wrong.</strong></li>
+                        </ol>
                     </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <h1 class="indigo-text center" th:text="${error}">Not found</h1>
-                                <p class="col s12 center" th:text="${message}">This page is not available</p>
-                                <p>
-                                    Go to <a href="index.html" title="Home" th:href="@{/}" class="active">
-                                        <i class="fa fa-home"></i>
-                                        <span>Home</span>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
+                    <!-- START PANEL-->
+                    <div class="bs-callout">
+                        <h3 style="margin-top: 10px" th:text="${error}">Error</h3>
+                        <p style="margin-top: 15px" th:text="${message}"></p>
+                        <p>Please go to 
+                            <a href="index.html" title="Home" th:href="@{/}" class="active">
+                                <i class="fa fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </p>
                     </div>
+                    <!-- END PANEL-->
                 </div>
             </section>
-
             <footer th:fragment="site-footer">
                 CSPro Dashboard
             </footer>
-
         </div>
     </body>
 </html>

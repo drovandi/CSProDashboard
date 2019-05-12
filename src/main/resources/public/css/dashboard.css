@@ -65,6 +65,23 @@ body, html {
     border-color: #cccccc;
 }
 
+/* Error page*/
+.error .topnavbar{
+    background-color: #D42B30;
+    border-color:#980f0f;
+}
+
+.error .menu-spacer{
+    border-bottom-color: #980f0f;
+}
+
+.error .nav > li > a {
+    color: #980f0f;
+}
+.error .nav > li > a:hover {
+    color: #D42B30;
+}
+
 /* START HEADER */
 .navbar{
     min-height: 50px;

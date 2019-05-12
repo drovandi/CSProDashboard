@@ -5,7 +5,7 @@
 
     <groupId>it.istat.cspro.dashboard</groupId>
     <artifactId>csprodashboard</artifactId>
-    <version>0.0.1</version>
+    <version>1.0</version>
     <packaging>${packaging.type}</packaging>
     <name>CSProDashboard</name>
     <description>CSProDashboard</description>
@@ -60,6 +60,21 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j</artifactId>
+            <version>1.2.8.RELEASE</version> 
+        </dependency> 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

@@ -53,8 +53,8 @@
                         </div>    
                     </div>
                 </div>
-                
-                                <div class="modal fade" id="modalInfo" role="dialog">
+
+                <div class="modal fade" id="modalInfo" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -87,7 +87,7 @@
                                         <span>Home</span>
                                     </a>
                                 </li>
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')">
+                                <li class="nav-body" sec:authorize="hasRole('ADMIN') || hasRole('PROGRESS')">
                                     <a href="#process" title="Process Report" data-toggle="collapse" class="collapsed" aria-expanded="false">
                                         <i class="fa fa-cogs"></i>
                                         <span>Progress Report</span>
@@ -108,7 +108,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN') || hasAuthority('ANALYST')">
+                                <li class="nav-body" sec:authorize="hasRole('ADMIN') || hasRole('ANALYST')">
                                     <a href="#data"
                                        title="Analysis Report" data-toggle="collapse" class="collapsed"
                                        aria-expanded="false">
@@ -145,7 +145,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-body menu-spacer" sec:authorize="hasAuthority('ADMIN') || hasAuthority('PROGRESS')">
+                                <li class="nav-body menu-spacer" sec:authorize="hasRole('ADMIN') || hasRole('PROGRESS')">
                                     <a href="#gis" title="GIS maps" data-toggle="collapse" class="collapsed" aria-expanded="false">
                                         <i class="fa fa-map-marker"></i>
                                         <span>GIS maps</span>
@@ -159,7 +159,7 @@
                                     </ul-->
                                 </li>
 
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
+                                <li class="nav-body" sec:authorize="hasRole('ADMIN')">
                                     <a href="#cspro2sql" title="CSPro2Sql" data-toggle="collapse"
                                        class="collapsed" aria-expanded="false">
                                         <i class="fa fa-tasks"></i>
@@ -174,7 +174,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-body" sec:authorize="hasAuthority('ADMIN')">
+                                <li class="nav-body" sec:authorize="hasRole('ADMIN')">
                                     <a th:href="@{/users/userlist}" title="Administration">
                                         <i class="fa fa-briefcase"></i>
                                         <span>Administration</span>

@@ -1,5 +1,5 @@
 package it.istat.cspro.dashboard.bean;
 
 public enum Role {
-    ADMIN, PROGRESS, ANALYST
+    ROLE_ADMIN, ROLE_PROGRESS, ROLE_ANALYST
 }

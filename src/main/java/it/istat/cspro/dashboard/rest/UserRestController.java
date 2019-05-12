@@ -29,6 +29,7 @@ public class UserRestController {
     @Autowired
     private NotificationService notificationService;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/restlist")
     public List<User> userslist(Model model) {
         return userService.findAll();
@@ -38,7 +39,8 @@ public class UserRestController {
     public User getUser(@RequestParam("id") Long id) {
         return userService.findOne(id);
     }
-
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/users/restNewUser", method = RequestMethod.POST)
     public List<NotificationMessage> newUser(@Valid @ModelAttribute("userCreateForm") UserCreateForm form, BindingResult bindingResult) {
         notificationService.removeAllMessages();

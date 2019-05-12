@@ -1,5 +1,6 @@
 package it.istat.cspro.dashboard;
 
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernateEntityManagerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 public class DashboardApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
+        Logger.getLogger(DashboardApplication.class.getName()).info("RUN");
         SpringApplication.run(DashboardApplication.class, args);
     }
 
